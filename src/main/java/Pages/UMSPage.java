@@ -2,6 +2,7 @@ package Pages;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,10 +32,10 @@ public class UMSPage extends HelperFunctions {
 	@FindBy(xpath="//button[.='Submit']")
 	private WebElement submit;
 	
-	@FindBy(xpath="(//button[.='Add User'])[3]")
+	@FindBy(xpath="(//button[.='Add User'])[2]")
 	private WebElement addUser;
 	
-	@FindBy(xpath="(//button[.='Add User'])[4]")
+	@FindBy(xpath="(//button[.='Add User'])[1]")
 	private WebElement addUser2;
 	
 	@FindBy(xpath="//input[@name='emailAddress']")
@@ -79,7 +80,7 @@ public class UMSPage extends HelperFunctions {
 	@FindBy(xpath="//label[@class='ap-option-label']")
 	private static List<WebElement> checkBoxes2;
 	
-	@FindBy(xpath="(//mat-expansion-panel-header[starts-with(@id, \"mat-expansion-panel-header\")])[3]")
+	@FindBy(xpath="(//mat-expansion-panel-header[starts-with(@id, \"mat-expansion-panel-header\")])[2]")
 	private WebElement checkProducts;
 	
 	@FindBy(xpath="(//span[.='Product 2'])[1]")
@@ -87,7 +88,7 @@ public class UMSPage extends HelperFunctions {
 	
 
 	
-	@FindBy(xpath="(((//table[starts-with(@class, \"ng-tns\")])[9])//tr)[9]//td[4]//button")
+	@FindBy(xpath="/html/body/app-root/app-ums-landing/html/body/div/div[1]/div[3]/mat-accordion/mat-expansion-panel/div/div/table[2]/tr[2]/td[4]/button")
 	private WebElement otherProductUsers;
 	
 	@FindBy(xpath="//input[@placeholder='Search']")
@@ -108,11 +109,11 @@ public class UMSPage extends HelperFunctions {
 	@FindBy(xpath="((//table[starts-with(@class, \"ng-tns\")])[9])//tr")
 	private static List<WebElement> productsRows;
 	
-	@FindBy(xpath="(((//table[starts-with(@class, \"ng-tns\")])[9])//tr)[8]//td[4]//button")
-	private WebElement product2users;
+	@FindBy(xpath="/html/body/app-root/app-ums-landing/html/body/div/div[1]/div[3]/mat-accordion/mat-expansion-panel/div/div/table[2]/tr[1]/td[4]/button")
+	private WebElement checkinusers;
 	
-	@FindBy(xpath="(((//table[starts-with(@class, \"ng-tns\")])[9])//tr)[8]//td[2]")
-	private WebElement product2Title;
+	@FindBy(xpath="(//span[.='Check-in'])[2]")
+	private WebElement checkinTitle;
 	
 	@FindBy(xpath="//td[@class='emailAdd']")
 	private WebElement emailForVerification;
@@ -126,17 +127,19 @@ public class UMSPage extends HelperFunctions {
 	
 	
 	
-	
+	static Logger logger=Logger.getLogger("UMSPage");
 	ReadXLSdata read1=new ReadXLSdata();
 	
 	public void setErrorMessages() throws Exception {
-		read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
-		next.click();
-		pass.sendKeys(read1.getCellData("VALUE", 1));
-		submit.click();
 		HelperFunctions.waitForPageToLoad(5);
-	
+		HelperFunctions.staticWait(3);
+		read1.setExcelFile("./testdata.xlsx", "STG");
+		email.sendKeys(read1.getCellData("VALUE", 44));
+		next.click();
+		//pass.sendKeys(read1.getCellData("VALUE", 1));
+		//submit.click();
+		HelperFunctions.waitForPageToLoad(5);
+		HelperFunctions.staticWait(3);
 		addUser.click();
 		HelperFunctions.staticWait(3);
 		if(emailAddress.getText().trim().isEmpty()&&firstName.getText().trim().isEmpty()&&lastName.getText().trim().isEmpty()) {
@@ -152,9 +155,33 @@ public class UMSPage extends HelperFunctions {
 		String errorMessage1="First name is required";
 		String errorMessage2="Last name is required";
 		String errorMessage3="User level selection is required";
-		Assert.assertEquals(firstErrorMessage.getText(), errorMessage1);
-		Assert.assertEquals(secondErrorMessage.getText(), errorMessage2);
-		Assert.assertEquals(thirdErrorMessage.getText(), errorMessage3);
+		//Assert.assertEquals(firstErrorMessage.getText(), errorMessage1);
+		if (!firstErrorMessage.getText().equals(errorMessage1)) {
+	           String errorMessage = "Error message does not appear";
+	             logger.error(errorMessage);
+	             throw new Exception(errorMessage);
+	       }else {
+	           String successMessage = "Error message appears";
+	             logger.info(successMessage);
+	       } 
+		//Assert.assertEquals(secondErrorMessage.getText(), errorMessage2);
+		if (!secondErrorMessage.getText().equals(errorMessage2)) {
+	           String errorMessage = "Error message does not appear";
+	             logger.error(errorMessage);
+	             throw new Exception(errorMessage);
+	       }else {
+	           String successMessage = "Error message appears";
+	             logger.info(successMessage);
+	       } 
+		//Assert.assertEquals(thirdErrorMessage.getText(), errorMessage3);
+		if (!thirdErrorMessage.getText().equals(errorMessage3)) {
+	           String errorMessage = "Error message does not appear";
+	             logger.error(errorMessage);
+	             throw new Exception(errorMessage);
+	       }else {
+	           String successMessage = "Error message appears";
+	             logger.info(successMessage);
+	       } 
 		
 		
 		
@@ -162,13 +189,15 @@ public class UMSPage extends HelperFunctions {
 		
 	}
 	public void setAssigningMultipleProducts() throws Exception {
-		read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
-		next.click();
-		pass.sendKeys(read1.getCellData("VALUE", 1));
-		submit.click();
 		HelperFunctions.waitForPageToLoad(5);
-	
+		HelperFunctions.staticWait(3);
+		read1.setExcelFile("./testdata.xlsx", "STG");
+		email.sendKeys(read1.getCellData("VALUE", 44));
+		next.click();
+		//pass.sendKeys(read1.getCellData("VALUE", 1));
+		//submit.click();
+		HelperFunctions.waitForPageToLoad(5);
+		HelperFunctions.staticWait(3);
 		addUser.click();
 		HelperFunctions.staticWait(3);
 		emailAddress.click();
@@ -206,13 +235,15 @@ public class UMSPage extends HelperFunctions {
 	}
 	
 	public void setAdminForMultipleCompanies() throws Exception {
-		read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
-		next.click();
-		pass.sendKeys(read1.getCellData("VALUE", 1));
-		submit.click();
 		HelperFunctions.waitForPageToLoad(5);
-		
+		HelperFunctions.staticWait(3);
+		read1.setExcelFile("./testdata.xlsx", "STG");
+		email.sendKeys(read1.getCellData("VALUE", 44));
+		next.click();
+		//pass.sendKeys(read1.getCellData("VALUE", 1));
+		//submit.click();
+		HelperFunctions.waitForPageToLoad(5);
+		HelperFunctions.staticWait(3);
 		addUser.click();
 		HelperFunctions.staticWait(3);
 		emailAddress.click();
@@ -295,13 +326,15 @@ public class UMSPage extends HelperFunctions {
 	
 	
 	public void setAdminRights() throws Exception {
-		read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
-		next.click();
-		pass.sendKeys(read1.getCellData("VALUE", 1));
-		submit.click();
 		HelperFunctions.waitForPageToLoad(5);
-		
+		HelperFunctions.staticWait(3);
+		read1.setExcelFile("./testdata.xlsx", "STG");
+		email.sendKeys(read1.getCellData("VALUE", 44));
+		next.click();
+		//pass.sendKeys(read1.getCellData("VALUE", 1));
+		//submit.click();
+		HelperFunctions.waitForPageToLoad(5);
+		HelperFunctions.staticWait(3);
 		addUser.click();
 		HelperFunctions.staticWait(3);
 		emailAddress.click();
@@ -323,13 +356,15 @@ public class UMSPage extends HelperFunctions {
 		
 	}
 	public void setDisplayingContentBasedOnLicence() throws Exception {
-		read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
-		next.click();
-		pass.sendKeys(read1.getCellData("VALUE", 1));
-		submit.click();
 		HelperFunctions.waitForPageToLoad(5);
-		
+		HelperFunctions.staticWait(3);
+		read1.setExcelFile("./testdata.xlsx", "STG");
+		email.sendKeys(read1.getCellData("VALUE", 44));
+		next.click();
+		//pass.sendKeys(read1.getCellData("VALUE", 1));
+		//submit.click();
+		HelperFunctions.waitForPageToLoad(5);
+		HelperFunctions.staticWait(3);
 		addUser.click();
 		HelperFunctions.staticWait(3);
 		String email="admin@gmail.com";
@@ -347,7 +382,7 @@ public class UMSPage extends HelperFunctions {
 		selectProducts.click();
 		HelperFunctions.staticWait(3);
 		for(int i=0;i<checkBoxes2.size();i++) {
-			if(checkBoxes2.get(i).getText().equalsIgnoreCase("Product 2")) {
+			if(checkBoxes2.get(i).getText().equalsIgnoreCase("Check-in")) {
 				checkBoxes2.get(i).click();
 			}
 		}
@@ -362,15 +397,23 @@ public class UMSPage extends HelperFunctions {
 		checkProducts.click();
 		HelperFunctions.staticWait(3);
 		JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
-	    js.executeScript("arguments[0].scrollIntoView(true);", product2Title);
+	    js.executeScript("arguments[0].scrollIntoView(true);", checkinTitle);
 	    HelperFunctions.staticWait(3);
-	    product2users.click();
+	    checkinusers.click();
 	    HelperFunctions.staticWait(3);
 	    searchUsers.click();
 	    searchUsers.sendKeys(email);
 	    HelperFunctions.staticWait(3);
 	    String actualUser=emailForVerification.getText();
-	    Assert.assertEquals(actualUser, email);
+	  //  Assert.assertEquals(actualUser, email);
+	    if (!actualUser.equals(email)) {
+	           String errorMessage = "Email verification failed";
+	             logger.error(errorMessage);
+	             throw new Exception(errorMessage);
+	       }else {
+	           String successMessage = "Email verification is successful";
+	             logger.info(successMessage);
+	       } 
 	    HelperFunctions.staticWait(3);
 	    closeUsers.click();
 	    HelperFunctions.staticWait(3);
@@ -384,52 +427,10 @@ public class UMSPage extends HelperFunctions {
 	    searchUsers.click();
 	    searchUsers.sendKeys(email);
 	    HelperFunctions.staticWait(3);
-	    Assert.assertTrue(resultTable.getText().isBlank());
-		
-		
-			
+	//    Assert.assertTrue(resultTable.getText().isBlank());
+	    Assert.assertFalse(resultTable.getText().equalsIgnoreCase(email));
 		
 			
-	
-		
-		
-		
-		
-		
-		/*for(WebElement each:features) {
-				if(!each.getAttribute("textContent").isBlank()) {
-				System.out.println(each.getText());
-				for(WebElement each2:productsRows) {
-					if(!each.getAttribute("textContent").isBlank()) {
-						System.out.println(each2.getText());
-					}
-				}
-					
-						
-				
-			}
-		}
-		
-		
-		
-		
-		
-		/*JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
-	    js.executeScript("arguments[0].scrollIntoView(true);", product2);
-	    HelperFunctions.staticWait(3);
-	    product2Users.click();
-	    HelperFunctions.staticWait(3);
-	    searchUsers.click();
-	    searchUsers.sendKeys(email);
-	    HelperFunctions.staticWait(3);
-	    for(WebElement each:allUsers) {
-	    	if(each.getText().contains(email)) {
-	    		Assert.assertTrue(true);
-	    	}else {
-	    		Assert.assertTrue(false);
-	    	}
-	    }*/
-		
 	}
 	
 

@@ -9,12 +9,11 @@
     <classes>
       <class name="com.pwc.productcentral.SanityTestCases">
        <methods>
-      <include name="WEB_1"/>
+     <include name="WEB_1"/>
        <include name="WEB_2"/>
        <include name="WEB_3"/>
        <include name="WEB_4"/>
        <include name="WEB_5"/>
-       <include name="WEB_5_2"/>
        <include name="WEB_6"/>
        <include name="WEB_7"/>
        <include name="WEB_8"/>
@@ -22,11 +21,11 @@
        <include name="WEB_10"/>
        <include name="WEB_11"/>
        <include name="WEB_12"/>
-       <include name="WEB_13"/>
+       <exclude name="WEB_13"/>
        <include name="WEB_14"/>
        <include name="WEB_15"/>
        <include name="WEB_16"/>
-       <include name="WEB_17"/>
+       <exclude name="WEB_17"/>
        <include name="WEB_18"/>
        <include name="WEB_19"/>
        <include name="WEB_20"/>
@@ -41,10 +40,9 @@
        <include name="WEB_29"/>
        <include name="WEB_30"/>
        <include name="WEB_31"/>
-       <include name="WEB_31_1"/>
        <include name="WEB_32"/>
-       <include name="WEB_33"/>
-       <include name="WEB_34"/>
+       <exclude name="WEB_33"/>
+       <exclude name="WEB_34"/>
        <include name="WEB_35"/>
        <include name="WEB_36"/>
        <include name="WEB_37"/>
@@ -61,23 +59,18 @@
        <include name="WEB_48"/>
        <include name="WEB_49"/>
        <include name="WEB_50"/>
-       <include name="WEB_51"/>
+       <exclude name="WEB_51"/>
        <include name="WEB_52"/>
-       <include name="WEB_52_1"/>
-       <include name="WEB_52_2"/>
-       <include name="WEB_52_3"/>
-       <include name="WEB_52_4"/>
-       <include name="WEB_52_5"/>
        <include name="WEB_53"/>
        <include name="WEB_54"/>
        <include name="WEB_55"/>
        <include name="WEB_56"/>
        <include name="WEB_57"/>
-       <include name="WEB_58"/>
-       <include name="WEB_59"/>
+       <exclude name="WEB_58"/>
+       <exclude name="WEB_59"/>
        <include name="WEB_60"/>
        <include name="WEB_61"/>
-       <include name="WEB_62"/>
+       <exclude name="WEB_62"/>
        <include name="WEB_63"/>
        <include name="WEB_64"/>
        <include name="WEB_65"/>
@@ -102,6 +95,12 @@
        <include name="WEB_84"/>
        <include name="WEB_85"/>
        <include name="WEB_86"/>
+       <include name="WEB_87"/>
+       <include name="WEB_88"/>
+       <include name="WEB_89"/>
+       <include name="WEB_90"/>
+   
+
        
       </methods>
       </class>

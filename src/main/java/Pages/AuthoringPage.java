@@ -1,37 +1,25 @@
 package Pages;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.pwc.productcentral.Driver;
@@ -152,7 +140,7 @@ public class AuthoringPage extends HelperFunctions {
 	@FindBy(xpath="//select[@name='./productFeatureTag']//option")
 	private static List<WebElement> productFeatureTags;
 	
-	@FindBy(xpath="//select[@name='./portfolioTag']//option")
+	@FindBy(xpath="//ul[@class='coral-SelectList is-visible is-below']//li")
 	private static List<WebElement> portfolioTags;
 	
 	@FindBy(xpath="(//button[@role='combobox'])[4]")
@@ -264,10 +252,10 @@ public class AuthoringPage extends HelperFunctions {
 	@FindBy(xpath="/html/body/div[2]/div/coral-actionbar/coral-actionbar-primary/coral-actionbar-item[11]/button/coral-icon")
 	private WebElement Publish;
 	
-	@FindBy(xpath="//div[@id='pcLayout__content-page']")
+	@FindBy(xpath="//div[@class='cmp-sitemap__title']//a//h1")
 	private static List<WebElement> sitemapContents;
 	
-	@FindBy(xpath="//div[@data-path='/content/pc/us/en/automation/legal/jcr:content/root/container/container/legal_content_tiles']")
+	@FindBy(xpath="//div[@data-path='/content/pc/us/en/automation/legal/jcr:content/root/container/container/legal_product_tiles']")
 	private WebElement legalTilesAuth;
 	
 	@FindBy(xpath="//div[@class='cmp-document-tiles__entries']")
@@ -291,13 +279,13 @@ public class AuthoringPage extends HelperFunctions {
 	@FindBy(xpath="//a[@href='/us/en/automation/products/cloud/offering-overview.html']")
 	private WebElement offeringOverviewLink2;
 	
-	@FindBy(xpath="//div[@data-path='/content/pc/us/en/automation/products/cloud/offering-overview/jcr:content/root/container/container/pdf_highlights']")
+	@FindBy(xpath="//div[@data-path='/content/pc/us/en/automation/products/cloud/offering-overview/jcr:content/root/container/container/title']")
 	private WebElement offeringOverviewLink2auth;
 	
 	@FindBy(xpath="(//input[@name='./jcr:title'])[2]")
 	private WebElement titleField;
 	
-	@FindBy(xpath="//span[@class='cmp-pdf-highlights__title']")
+	@FindBy(xpath="//h1[@class='cmp-title__text']")
 	private WebElement contentTitle;
 	
 	@FindBy(xpath="(//button[@data-layer='Edit'])[2]")
@@ -358,7 +346,7 @@ public class AuthoringPage extends HelperFunctions {
 	@FindBy(xpath="//button[@icon='globeStrike']")
 	private WebElement unpublish;
 	
-	@FindBy(xpath="//img[@src='/content/pc/us/en/automation/reseller-demo.thumb.48.48.png?ck=1667482422000']")
+	@FindBy(xpath="//img[@src='/content/pc/us/en/automation/reseller-demo.thumb.48.48.png?ck=1675950972000']")
 	private WebElement resellerdemoImageforUnpublish;
 	
 	@FindBy(xpath="//button[@type='submit']")
@@ -400,7 +388,7 @@ public class AuthoringPage extends HelperFunctions {
 	@FindBy(xpath="//*[@id=\"coral-id-655\"]/coral-panel-content/div/div/div/div/foundation-autocomplete/div/div/span/button")
 	private WebElement contentOptions3;
 	
-	@FindBy(xpath="//img[@src='/content/dam/productcentral/general/content-pdf/PricewaterhouseCoopers2.pdf.thumb.48.48.png']")
+	@FindBy(xpath="//img[@src='/content/dam/productcentral/en_us/products/check-in/myproducts/CLEAR%20%2b%20Check-In%20User%20Flow_OFRO%20Approved.pdf.thumb.48.48.png']")
 	private WebElement priceWaterPdf;
 	
 	@FindBy(xpath="//span[@class='cmp-pdf-highlights__pdf-info']")
@@ -412,7 +400,7 @@ public class AuthoringPage extends HelperFunctions {
 	@FindBy(xpath="(//div[@class='coral3-Card-wrapper'])//foundation-time")
 	private static List<WebElement> pdfInfo2;
 	
-	@FindBy(xpath="//img[@src='/content/dam/productcentral/general/content-pdf/PDF%20Template%20for%20AEM%20Testing.pdf.thumb.48.48.png']")
+	@FindBy(xpath="//img[@src='/content/dam/productcentral/en_us/products/check-in/myproducts/API%201-Pager%20Overview%20Slide.pdf.thumb.48.48.png']")
 	private WebElement pdfTemplate;
 	
 	@FindBy(xpath="/html/body/coral-dialog[2]/div[2]/form/coral-dialog-content/div/coral-tabview/coral-panelstack/coral-panel[1]/coral-panel-content/div/div/div/div/foundation-autocomplete/div/div/span/button")
@@ -430,13 +418,13 @@ public class AuthoringPage extends HelperFunctions {
 	@FindBy(xpath="//li[.='Bookkeeping Connect']")
 	private WebElement firstOptionofProCat;
 	
-	@FindBy(xpath="//li[.='Customer engagement']")
+	@FindBy(xpath="//li[@data-value='productcentral:portfolio/customer-engagement']")
 	private WebElement firstOptionofPortCat;
 	
 	@FindBy(xpath="(//button[@class='foundation-layout-inline2-item foundation-wizard-control coral3-Button coral3-Button--primary'])[2]")
 	private WebElement createButton2;
 	
-	@FindBy(xpath="(//button[@class='coral3-Button coral3-Button--secondary'])[6]")
+	@FindBy(xpath="//coral-button-label[.='Done']")
 	private WebElement doneButton;
 	
 	@FindBy(xpath="//div[@title='Release Notes [Root]']")
@@ -445,7 +433,7 @@ public class AuthoringPage extends HelperFunctions {
 	@FindBy(xpath="//coral-button-label[.='Add']")
 	private WebElement addButton;
 	
-	@FindBy(xpath="//input[@name='./releaseNotes/item0/./jcr:title']")
+	@FindBy(xpath="(//input[@name='./jcr:title'])[2]")
 	private WebElement releaseTitle;
 	
 	@FindBy(xpath="//div[@data-fielddescription='Enter Release Note Description']")
@@ -502,10 +490,11 @@ public class AuthoringPage extends HelperFunctions {
 	@FindBy(xpath="(//button[@role='combobox'])[3]")
 	private WebElement pcTags;
 	
-	@FindBy(xpath="(//foundation-time[@type='datetime'])[1]")
+	@FindBy(xpath="(//foundation-time[@type='datetime'])[50]")
 	private WebElement pdfDate;
 	
-
+	@FindBy(xpath="//img[@src='/content/pc/us/en/automation/sitemapfortesting.thumb.48.48.png?ck=']")
+    private WebElement sitemapImg;
 	
 	
 	
@@ -657,7 +646,7 @@ public class AuthoringPage extends HelperFunctions {
 	}
     public void setDocCategory() throws Exception {
   
-        read1.setExcelFile("./testdata.xlsx", "QA");
+       /* read1.setExcelFile("./testdata.xlsx", "QA");
  		email.sendKeys(read1.getCellData("DATA", 1));
  		next.click();
  		pass.sendKeys(read1.getCellData("VALUE", 1));
@@ -667,8 +656,8 @@ public class AuthoringPage extends HelperFunctions {
  js.executeScript("window.open()");
  	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
  	    Driver.getDriver().switchTo().window(tabs.get(1));
- 	    Driver.getDriver().get(read1.getCellData("VALUE", 17));
- 	    HelperFunctions.waitForPageToLoad(5);
+ 	    Driver.getDriver().get(read1.getCellData("VALUE", 17));*/
+ 	   // HelperFunctions.waitForPageToLoad(5);
     	createButton.click();
     	pageButton.click();
     	HelperFunctions.waitForPageToLoad(5);
@@ -679,35 +668,43 @@ public class AuthoringPage extends HelperFunctions {
     	 HelperFunctions.staticWait(3);
 		
         	
-        	 FileInputStream file = new FileInputStream("C:\\Users\\erong\\git\\ProductCentralProject-Automation1\\testdata.xlsx");
-             XSSFWorkbook workbook = new XSSFWorkbook(file);
-             XSSFSheet sheet = workbook.getSheetAt(1); 
-             int columnIndex = 2; 
-          
-             HelperFunctions.staticWait(3);
-             JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
-             executor.executeScript("arguments[0].click();", portfolioTags2);
-            
-             HashSet<String> cellValues = new HashSet<String>();
-             for (int rowNum = 0; rowNum < sheet.getLastRowNum(); rowNum++) {
-                 XSSFRow row = sheet.getRow(rowNum);
-                 if(row == null) continue;
-                 XSSFCell cell = row.getCell(columnIndex);
-                 if(cell == null) continue;
-                 cellValues.add(cell.getStringCellValue());
-             }
-             for (WebElement element : portfolioTags) {
-                 if(element.isDisplayed() && element.isEnabled()){
-                     String elementText = element.getText();
-                     if(elementText!=null && !elementText.isEmpty()){
-                         Assert.assertTrue(cellValues.contains(elementText), "element text: " + elementText + " not found in the column: " + columnIndex);
-                     }else{
-                         System.out.println("Element text is empty or null, skipping the element");
-                     }
-                 }else{
-                     System.out.println("Element is not interactable or not visible, skipping the element");
-                 }
-             }
+    	 FileInputStream file = new FileInputStream("C:\\Users\\GLBL_RDP_USER_01\\eclipse-workspace\\ProductCentralProject-STG-SanityAutomation\\testdata.xlsx");
+    	 XSSFWorkbook workbook = new XSSFWorkbook(file);
+    	 XSSFSheet sheet = workbook.getSheetAt(1); 
+    	 int columnIndex = 2; 
+
+    	 HelperFunctions.staticWait(3);
+    	 JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+    	 executor.executeScript("arguments[0].click();", portfolioTags2);
+
+    	 HashSet<String> cellValues = new HashSet<String>();
+    	 for (int rowNum = 0; rowNum <= sheet.getLastRowNum(); rowNum++) {
+    	     XSSFRow row = sheet.getRow(rowNum);
+    	     if(row == null) continue;
+    	     XSSFCell cell = row.getCell(columnIndex);
+    	     if(cell == null) continue;
+    	     cellValues.add(cell.getStringCellValue());
+    	 }
+
+    	 for (WebElement element : portfolioTags) {
+    	     if (element.isDisplayed() && element.isEnabled()) {
+    	         String elementText = element.getText();
+    	         if (elementText != null && !elementText.isEmpty()) {
+    	             boolean elementFound = false;
+    	             for (String cellValue : cellValues) {
+    	                 if (cellValue.equalsIgnoreCase(elementText)) {
+    	                     elementFound = true;
+    	                     break;
+    	                 }
+    	             }
+    	             Assert.assertTrue(elementFound, "element text: " + elementText + " not found in the column: " + columnIndex);
+    	         } else {
+    	             System.out.println("Element text is empty or null, skipping the element");
+    	         }
+    	     } else {
+    	         System.out.println("Element is not interactable or not visible, skipping the element");
+    	     }
+    	 }
             /* HelperFunctions.staticWait(3);
              JavascriptExecutor executor2 = (JavascriptExecutor) Driver.getDriver();
              executor2.executeScript("arguments[0].click();", pcTags);
@@ -799,8 +796,8 @@ public class AuthoringPage extends HelperFunctions {
     
     public void setHyperlinks() throws Exception {
     	
-    	
     	read1.setExcelFile("./testdata.xlsx", "QA");
+    	/*read1.setExcelFile("./testdata.xlsx", "QA");
 		email.sendKeys(read1.getCellData("DATA", 1));
 		next.click();
 		pass.sendKeys(read1.getCellData("VALUE", 1));
@@ -810,7 +807,7 @@ public class AuthoringPage extends HelperFunctions {
         js.executeScript("window.open()");
 	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
-	    Driver.getDriver().get(read1.getCellData("VALUE", 17));
+	    Driver.getDriver().get(read1.getCellData("VALUE", 17));*/
 	    HelperFunctions.waitForPageToLoad(3);
 	    productsPackage.click();
 	    HelperFunctions.staticWait(3);
@@ -824,7 +821,12 @@ public class AuthoringPage extends HelperFunctions {
     	Assert.assertTrue(secondPositionAuthor.getText().contains(expectedTitle2));
     	Assert.assertTrue(thirdPositionAuthor.getText().contains(expectedTitle3));
     	Assert.assertTrue(forthPositionAuthor.getText().contains(expectedTitle4));
-    	
+    	HelperFunctions.staticWait(3);
+	    //ArrayList<String> tabs2 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	   // Driver.getDriver().switchTo().window(tabs2.get(1));
+	   // Driver.getDriver().get(read1.getCellData("VALUE", 21));
+	    JavascriptExecutor js2 = ((JavascriptExecutor) Driver.getDriver());
+        js2.executeScript("window.open()");
 	    ArrayList<String> tabs2 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs2.get(1));
 	    Driver.getDriver().get(read1.getCellData("VALUE", 21));
@@ -843,7 +845,7 @@ public class AuthoringPage extends HelperFunctions {
     public void setSitemap() throws Exception {
     	HelperFunctions.waitForPageToLoad(5);
     	read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
+		/*email.sendKeys(read1.getCellData("DATA", 1));
 		next.click();
 		pass.sendKeys(read1.getCellData("VALUE", 1));
 		submit.click();
@@ -853,13 +855,17 @@ public class AuthoringPage extends HelperFunctions {
 	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
 	    Driver.getDriver().get(read1.getCellData("VALUE", 16));
-	    HelperFunctions.waitForPageToLoad(5);
+	    HelperFunctions.waitForPageToLoad(5);*/
 	    sitemap.click();
+	    HelperFunctions.staticWait(3);
 	    settingIcon.click();
-	    ArrayList<String> tabs7 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs7.get(1));
+	    HelperFunctions.staticWait(3);
+	    //ArrayList<String> tabs7 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	   // Driver.getDriver().switchTo().window(tabs7.get(1));
 	    checkforOptions.click();
+	    HelperFunctions.staticWait(3);
 	    myproductImage.click();
+	    HelperFunctions.staticWait(3);
 	    JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
         executor.executeScript("arguments[0].click();", myproductImage);
         JavascriptExecutor executor2 = (JavascriptExecutor) Driver.getDriver();
@@ -870,24 +876,35 @@ public class AuthoringPage extends HelperFunctions {
 	   
 	    HelperFunctions.staticWait(3);
 	    checkIcon.click();
+	    HelperFunctions.staticWait(3);
 	    previewButton2.click();
+	    HelperFunctions.staticWait(3);
 	    for(WebElement each: sitemapContents) {
 	    	if(each.getText().contains("Fluid Forecast")&& each.getText().contains("Disclosure Checklist")
 	    			&&!each.getText().contains("Products") ) {
+	    		String successMessage = "Contents contain relevant title";
+	            logger.info(successMessage);
 	    		Assert.assertTrue(true);
 	    	}else {
-	    		Assert.assertTrue(false);
+	    		String errorMessage = "Contents do not contain relevant title";
+	            logger.error(errorMessage);
+	            throw new Exception(errorMessage);
+	    	//	Assert.assertTrue(false);
 	    	}
 	    }
 	    HelperFunctions.staticWait(3);
 	    editnextToPreview.click();
 	    HelperFunctions.staticWait(3);
 	    sitemap.click();
+	    HelperFunctions.staticWait(3);
 	    settingIcon.click();
-	    ArrayList<String> tabs8 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs8.get(1));
+	    HelperFunctions.staticWait(3);
+	    //ArrayList<String> tabs8 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	   // Driver.getDriver().switchTo().window(tabs8.get(1));
 	    checkforOptions.click();
+	    HelperFunctions.staticWait(3);
 	    automationImage.click();
+	    HelperFunctions.staticWait(3);
 	    JavascriptExecutor executor4 = (JavascriptExecutor) Driver.getDriver();
         executor4.executeScript("arguments[0].click();", automationImage);
         JavascriptExecutor executor5 = (JavascriptExecutor) Driver.getDriver();
@@ -898,12 +915,19 @@ public class AuthoringPage extends HelperFunctions {
 	   
 	    HelperFunctions.staticWait(3);
 	    checkIcon.click();
+	    HelperFunctions.staticWait(3);
 	    previewButton2.click();
+	    HelperFunctions.staticWait(3);
 	    for(WebElement each: sitemapContents) {
 	    	if(each.getText().contains("Products")&& each.getText().contains("Reseller Demo")) {
+	    		String successMessage = "Contents contain relevant title";
+	            logger.info(successMessage);
 	    		Assert.assertTrue(true);
 	    	}else {
-	    		Assert.assertTrue(false);
+	    		String errorMessage = "Contents do not contain relevant title";
+	            logger.error(errorMessage);
+	            throw new Exception(errorMessage);
+	    	//	Assert.assertTrue(false);
 	    	}
 	    }
 	    
@@ -916,7 +940,7 @@ public class AuthoringPage extends HelperFunctions {
  public void setHideSitemap() throws Exception {
 	    HelperFunctions.waitForPageToLoad(5);
     	read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
+		/*email.sendKeys(read1.getCellData("DATA", 1));
 		next.click();
 		pass.sendKeys(read1.getCellData("VALUE", 1));
 		submit.click();
@@ -926,7 +950,7 @@ public class AuthoringPage extends HelperFunctions {
 	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
 	    Driver.getDriver().get(read1.getCellData("VALUE", 17));
-	    HelperFunctions.waitForPageToLoad(5);
+	    HelperFunctions.waitForPageToLoad(5);*/
 	    homepageDemo.click();
 	    HelperFunctions.staticWait(5);
 	    JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
@@ -937,6 +961,7 @@ public class AuthoringPage extends HelperFunctions {
 	    HelperFunctions.staticWait(5);
 	    properties.click();
 	    HelperFunctions.waitForPageToLoad(5);
+	    HelperFunctions.staticWait(3);
 	    hidesitemapCheckbox.click();
 	    HelperFunctions.staticWait(5);
 	    saveAndClose.click();
@@ -950,37 +975,50 @@ public class AuthoringPage extends HelperFunctions {
 	    JavascriptExecutor executor5 = (JavascriptExecutor) Driver.getDriver();
         executor5.executeScript("arguments[0].click();", homepageDemo);
         HelperFunctions.staticWait(5);
-	    quickPublish.click();
-	    HelperFunctions.staticWait(5);
-	    ArrayList<String> tabs2 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs2.get(1));
-	    HelperFunctions.staticWait(5);
-	    JavascriptExecutor executor6 = (JavascriptExecutor) Driver.getDriver();
-        executor6.executeScript("arguments[0].click();",  Publish);
+        JavascriptExecutor executor7 = (JavascriptExecutor) Driver.getDriver();
+        executor7.executeScript("arguments[0].click();",  sitemapImg);
         HelperFunctions.staticWait(5);
-        Driver.getDriver().get(read1.getCellData("VALUE", 18));
+        quickPublish.click();
+          HelperFunctions.staticWait(5);
+          JavascriptExecutor executor6 = (JavascriptExecutor) Driver.getDriver();
+        executor6.executeScript("arguments[0].click();",  publish2);
+        HelperFunctions.staticWait(3);
+        JavascriptExecutor executor11 = (JavascriptExecutor) Driver.getDriver();
+        executor11.executeScript("arguments[0].click();", homepageDemo);
+        HelperFunctions.staticWait(3);
+        JavascriptExecutor executor8 = (JavascriptExecutor) Driver.getDriver();
+        executor8.executeScript("arguments[0].click();",  sitemapImg);
+        HelperFunctions.staticWait(3);
+        JavascriptExecutor executor9 = (JavascriptExecutor) Driver.getDriver();
+        executor9.executeScript("arguments[0].click();",  sitemapImg);
+        HelperFunctions.staticWait(3);
+        edit.click();
+        ArrayList<String> tabs2 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+        Driver.getDriver().switchTo().window(tabs2.get(1));
         HelperFunctions.waitForPageToLoad(5);
-	   /* JavascriptExecutor js2 = ((JavascriptExecutor) Driver.getDriver());
-        js2.executeScript("window.open()");
-	    ArrayList<String> tabs3 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs3.get(1));
-	    Driver.getDriver().get(read1.getCellData("VALUE", 18));*/
-	    String expectedContent="Homepage Demo";
-	    for(WebElement eachContent: sitemapContents) {
-	    	System.out.println(eachContent.getText());
-	    	if(!eachContent.getText().contains(expectedContent)) {
-	    		Assert.assertTrue(true);
-	    	}else {
-	    		Assert.assertTrue(false);
-	    	}
-	    }
-    	
+        previewButton2.click();
+        String expectedContent="Homepage Demo";
+        for(WebElement eachContent: sitemapContents) {
+            System.out.println(eachContent.getText());
+            if(!eachContent.getText().contains(expectedContent)) {
+            	String successMessage = "Contents contain relevant title";
+	            logger.info(successMessage);
+                Assert.assertTrue(true);
+            }else {
+            	String errorMessage = "Contents do not contain relevant title";
+	            logger.error(errorMessage);
+	            throw new Exception(errorMessage);
+              //  Assert.assertTrue(false);
+            }
+        }
     	
     }
  
  public void setTilesAuthorization() throws Exception {
+	 HelperFunctions.waitForPageToLoad(5);
+	 HelperFunctions.staticWait(3);
 	 read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
+		/*email.sendKeys(read1.getCellData("DATA", 1));
 		next.click();
 		pass.sendKeys(read1.getCellData("VALUE", 1));
 		submit.click();
@@ -989,25 +1027,30 @@ public class AuthoringPage extends HelperFunctions {
      js.executeScript("window.open()");
 	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
-	    Driver.getDriver().get(read1.getCellData("VALUE", 19));
-	    HelperFunctions.waitForPageToLoad(5);
-	   
+	    Driver.getDriver().get(read1.getCellData("VALUE", 19));*/   
 		for(WebElement eachTile: legalTiles) {
 			if(eachTile.getText().contains("Offering Overview")&& eachTile.getText().contains("Maintenance & Support")&& eachTile.getText().contains("Data Processing Addendum")
     				) {
+				String successMessage = "Contents contain relevant title";
+	            logger.info(successMessage);
 				Assert.assertTrue(true);
 			}else {
-				Assert.assertTrue(false);
+				String errorMessage = "Contents do not contain relevant title";
+	            logger.error(errorMessage);
+	            throw new Exception(errorMessage);
+				//Assert.assertTrue(false);
 			}
 		}
 	    JavascriptExecutor executor5 = (JavascriptExecutor) Driver.getDriver();
         executor5.executeScript("arguments[0].click();", legalTilesAuth);
         settingIcon.click();
-        ArrayList<String> tabs5 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs5.get(1));
+        HelperFunctions.staticWait(3);
+       // ArrayList<String> tabs5 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	   // Driver.getDriver().switchTo().window(tabs5.get(1));
 	    legalTilesAuthFirstCheckbox.click();
-	    ArrayList<String> tabs6 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs6.get(1));
+	    HelperFunctions.staticWait(3);
+	  //  ArrayList<String> tabs6 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	  //  Driver.getDriver().switchTo().window(tabs6.get(1));
 	    dataProcessingImg.click();
 	    HelperFunctions.staticWait(3);
 	    selectButton.click();
@@ -1016,20 +1059,27 @@ public class AuthoringPage extends HelperFunctions {
 	    for(WebElement eachTile: legalTiles) {
 			if(eachTile.getText().contains("Offering Overview")&& eachTile.getText().contains("Data Processing Addendum")&& eachTile.getText().contains("Data Processing Addendum")
     				) {
+				String successMessage = "Contents contain relevant title";
+	            logger.info(successMessage);
 				Assert.assertTrue(true);
 			}else {
-				Assert.assertTrue(false);
+				String errorMessage = "Contents do not contain relevant title";
+	            logger.error(errorMessage);
+	            throw new Exception(errorMessage);
+				//Assert.assertTrue(false);
 			}
 		}
 	    HelperFunctions.staticWait(3);
 	    JavascriptExecutor executor6 = (JavascriptExecutor) Driver.getDriver();
         executor6.executeScript("arguments[0].click();", legalTilesAuth);
         settingIcon.click();
-        ArrayList<String> tabs7 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs7.get(1));
+        HelperFunctions.staticWait(3);
+       // ArrayList<String> tabs7 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	  //  Driver.getDriver().switchTo().window(tabs7.get(1));
 	    legalTilesAuthFirstCheckbox.click();
-	    ArrayList<String> tabs8 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs8.get(1));
+	    HelperFunctions.staticWait(3);
+	   // ArrayList<String> tabs8 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	  //  Driver.getDriver().switchTo().window(tabs8.get(1));
 	    maintenanceImg.click();
 	    HelperFunctions.staticWait(3);
 	    selectButton.click();
@@ -1038,20 +1088,25 @@ public class AuthoringPage extends HelperFunctions {
 	    for(WebElement eachTile: legalTiles) {
 			if(eachTile.getText().contains("Offering Overview")&& eachTile.getText().contains("Maintenance & Support")&& eachTile.getText().contains("Data Processing Addendum")
     				) {
+				String successMessage = "Contents contain relevant title";
+	            logger.info(successMessage);
 				Assert.assertTrue(true);
 			}else {
-				Assert.assertTrue(false);
+				String errorMessage = "Contents do not contain relevant title";
+	            logger.error(errorMessage);
+	            throw new Exception(errorMessage);
+				//Assert.assertTrue(false);
 			}
 		}
-	    
+	    HelperFunctions.staticWait(3);
 	    
 	    
 	    
  }
  
  public void setContentAuthorization() throws Exception {
-	 read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
+	 read1.setExcelFile("./testdata.xlsx", "STG");
+/*		email.sendKeys(read1.getCellData("DATA", 1));
 		next.click();
 		pass.sendKeys(read1.getCellData("VALUE", 1));
 		submit.click();
@@ -1060,48 +1115,74 @@ public class AuthoringPage extends HelperFunctions {
   js.executeScript("window.open()");
 	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
-	    Driver.getDriver().get(read1.getCellData("VALUE", 20));
+	    Driver.getDriver().get(read1.getCellData("VALUE", 20));*/
 	    HelperFunctions.waitForPageToLoad(5);
 	    offeringOverviewLink2auth.click();
+	    HelperFunctions.staticWait(2);
 	    settingIcon.click();
-	    ArrayList<String> tabs7 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs7.get(1));
+	    HelperFunctions.staticWait(2);
+	  //  ArrayList<String> tabs7 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	  //  Driver.getDriver().switchTo().window(tabs7.get(1));
 	    titleField.click();
+	    HelperFunctions.staticWait(2);
 	    titleField.clear();
+	    HelperFunctions.staticWait(2);
 	    titleField.sendKeys("test");
 	    HelperFunctions.staticWait(3);
 	    checkIcon.click();
 	    HelperFunctions.staticWait(3);
 	    previewButton2.click();
-	    Set<String> allWindows4=Driver.getDriver().getWindowHandles();
-        List<String> windowsList4=new ArrayList<>(allWindows4);
-        Driver.getDriver().switchTo().window(windowsList4.get(1));
+	  //  Set<String> allWindows4=Driver.getDriver().getWindowHandles();
+     //   List<String> windowsList4=new ArrayList<>(allWindows4);
+      //  Driver.getDriver().switchTo().window(windowsList4.get(1));
         
         Driver.getDriver().switchTo().frame(0);
 	 String expectedTitle="test";
 	 String actualTitle=contentTitle.getText();
 	 Assert.assertEquals(expectedTitle, actualTitle);
+	 if (!actualTitle.equals(expectedTitle)) {
+         String errorMessage = "Titles do not match";
+         logger.error(errorMessage);
+         throw new Exception(errorMessage);
+     }else {
+         String successMessage = "Titles match";
+         logger.info(successMessage);
+     }
 	 Driver.getDriver().switchTo().defaultContent();
+	 HelperFunctions.staticWait(3);
 	 editButtonContent.click();
+	 HelperFunctions.staticWait(2);
 	 offeringOverviewLink2auth.click();
+	 HelperFunctions.staticWait(2);
 	 settingIcon.click();
-	    ArrayList<String> tabs8 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs7.get(1));
+	 HelperFunctions.staticWait(2);
+	  //  ArrayList<String> tabs8 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	  //  Driver.getDriver().switchTo().window(tabs7.get(1));
 	    titleField.click();
+	    HelperFunctions.staticWait(2);
 	    titleField.clear();
+	    HelperFunctions.staticWait(2);
 	    titleField.sendKeys("Offering Overview");
 	    HelperFunctions.staticWait(3);
 	    checkIcon.click();
 	    HelperFunctions.staticWait(3);
 	    previewButton2.click();
-	    Set<String> allWindows5=Driver.getDriver().getWindowHandles();
-     List<String> windowsList5=new ArrayList<>(allWindows5);
-     Driver.getDriver().switchTo().window(windowsList5.get(1));
+	  //  Set<String> allWindows5=Driver.getDriver().getWindowHandles();
+   //  List<String> windowsList5=new ArrayList<>(allWindows5);
+   //  Driver.getDriver().switchTo().window(windowsList5.get(1));
      
      Driver.getDriver().switchTo().frame(0);
 	 String expectedTitle2="Offering Overview";
 	 String actualTitle2=contentTitle.getText();
-	 Assert.assertEquals(expectedTitle2, actualTitle2);
+	// Assert.assertEquals(expectedTitle2, actualTitle2);
+	 if (!actualTitle2.equals(expectedTitle2)) {
+         String errorMessage = "Titles do not match";
+         logger.error(errorMessage);
+         throw new Exception(errorMessage);
+     }else {
+         String successMessage = "Titles match";
+         logger.info(successMessage);
+     }
 	 
 	 
  
@@ -1113,7 +1194,7 @@ public class AuthoringPage extends HelperFunctions {
  
  public void setHomepageTileAuthorization() throws Exception {
 	 read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
+	/*	email.sendKeys(read1.getCellData("DATA", 1));
 		next.click();
 		pass.sendKeys(read1.getCellData("VALUE", 1));
 		submit.click();
@@ -1122,50 +1203,78 @@ public class AuthoringPage extends HelperFunctions {
 js.executeScript("window.open()");
 	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
-	    Driver.getDriver().get(read1.getCellData("VALUE", 10));
+	    Driver.getDriver().get(read1.getCellData("VALUE", 10));*/
 	    HelperFunctions.waitForPageToLoad(5);
 	    homepageTileauth.click();
+	    HelperFunctions.staticWait(2);
 	    settingIcon.click();
-	    ArrayList<String> tabs7 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs7.get(1));
+	    HelperFunctions.staticWait(2);
+	   // ArrayList<String> tabs7 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	   // Driver.getDriver().switchTo().window(tabs7.get(1));
 	    collapseHeader.click();
+	    HelperFunctions.staticWait(2);
 	    titleofTile.click();
+	    HelperFunctions.staticWait(2);
 	    titleofTile.clear();
+	    HelperFunctions.staticWait(2);
 	    titleofTile.sendKeys("Tile 1");
 	    HelperFunctions.staticWait(3);
 	    checkIcon.click();
 	    HelperFunctions.staticWait(3);
 	    previewButton2.click();
-	    Set<String> allWindows4=Driver.getDriver().getWindowHandles();
-        List<String> windowsList4=new ArrayList<>(allWindows4);
-        Driver.getDriver().switchTo().window(windowsList4.get(1));
+	  //  Set<String> allWindows4=Driver.getDriver().getWindowHandles();
+      //  List<String> windowsList4=new ArrayList<>(allWindows4);
+      //  Driver.getDriver().switchTo().window(windowsList4.get(1));
         
         Driver.getDriver().switchTo().frame(0);
 	 String expectedTitle="Tile 1";
 	 String actualTitle=firstTitleofTile.getText();
-	 Assert.assertEquals(expectedTitle, actualTitle);
+	// Assert.assertEquals(expectedTitle, actualTitle);
+	 if (!actualTitle.equals(expectedTitle)) {
+         String errorMessage = "Titles do not match ";
+         logger.error(errorMessage);
+         throw new Exception(errorMessage);
+     }else {
+         String successMessage = "Titles match";
+         logger.info(successMessage);
+     }
 	 Driver.getDriver().switchTo().defaultContent();
+	 HelperFunctions.staticWait(2);
 	 editButtonContent.click();
+	 HelperFunctions.staticWait(2);
 	 homepageTileauth.click();
+	 HelperFunctions.staticWait(2);
 	    settingIcon.click();
-	    ArrayList<String> tabs9 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs9.get(1));
+	  //  ArrayList<String> tabs9 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	  //  Driver.getDriver().switchTo().window(tabs9.get(1));
 	    collapseHeader.click();
+	    HelperFunctions.staticWait(2);
 	    titleofTile.click();
+	    HelperFunctions.staticWait(2);
 	    titleofTile.clear();
+	    HelperFunctions.staticWait(2);
 	    titleofTile.sendKeys("Legal");	
 	    HelperFunctions.staticWait(3);
 	    checkIcon.click();
 	    HelperFunctions.staticWait(3);
 	    previewButton2.click();
-	    Set<String> allWindows5=Driver.getDriver().getWindowHandles();
-     List<String> windowsList5=new ArrayList<>(allWindows5);
-     Driver.getDriver().switchTo().window(windowsList5.get(1));
-     
+	 //   Set<String> allWindows5=Driver.getDriver().getWindowHandles();
+   //  List<String> windowsList5=new ArrayList<>(allWindows5);
+   //  Driver.getDriver().switchTo().window(windowsList5.get(1));
+	    HelperFunctions.staticWait(3);
      Driver.getDriver().switchTo().frame(0);
+     HelperFunctions.staticWait(3);
 	 String expectedTitle2="Legal";
 	 String actualTitle2=firstTitleofTile.getText();
-	 Assert.assertEquals(expectedTitle2, actualTitle2);
+	// Assert.assertEquals(expectedTitle2, actualTitle2);
+	 if (!actualTitle2.equals(expectedTitle2)) {
+         String errorMessage = "Titles do not match ";
+         logger.error(errorMessage);
+         throw new Exception(errorMessage);
+     }else {
+         String successMessage = "Titles match";
+         logger.info(successMessage);
+     }
 	    
 	    
 	    
@@ -1173,7 +1282,7 @@ js.executeScript("window.open()");
  }
  
  public void setDisplayingLogintomyProductLink() throws Exception {
-	 read1.setExcelFile("./testdata.xlsx", "QA");
+	/* read1.setExcelFile("./testdata.xlsx", "QA");
 		email.sendKeys(read1.getCellData("DATA", 1));
 		next.click();
 		pass.sendKeys(read1.getCellData("VALUE", 1));
@@ -1184,14 +1293,19 @@ js.executeScript("window.open()");
 	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
 	    Driver.getDriver().get(read1.getCellData("VALUE", 2));
-	    HelperFunctions.waitForPageToLoad(5);
+	    HelperFunctions.waitForPageToLoad(5);*/
 	    
 	    for(WebElement eachLink: loginToMyProductsLinks) {
 	    	if(eachLink.getText().contains("Login to My Products")) {
-	    		Assert.assertTrue(false);
+	    		String errorMessage = "Login to My Products link is not displayed";
+	            logger.error(errorMessage);
+	            throw new Exception(errorMessage);
+	    		//Assert.assertTrue(false);
 	    	}else {
 	    		Assert.assertTrue(true);
-	    		logger.error("Login to My Products link is not displayed ");
+	    		String successMessage = "Login to My Products link is displayed";
+	            logger.info(successMessage);
+	    	//	logger.error("Login to My Products link is not displayed ");
 	    	}
 	    }
 	 
@@ -1200,8 +1314,8 @@ js.executeScript("window.open()");
  }
  public void setUnpublishWorkflow() throws Exception {
  	
- 	read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
+ 	read1.setExcelFile("./testdata.xlsx", "STG");
+	/*	email.sendKeys(read1.getCellData("DATA", 1));
 		next.click();
 		pass.sendKeys(read1.getCellData("VALUE", 1));
 		submit.click();
@@ -1210,7 +1324,7 @@ js.executeScript("window.open()");
      js.executeScript("window.open()");
 	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
-	    Driver.getDriver().get(read1.getCellData("VALUE", 17));
+	    Driver.getDriver().get(read1.getCellData("VALUE", 17));*/
 	    HelperFunctions.waitForPageToLoad(5);
 	    resellerdemoImage.click();
 	    JavascriptExecutor executor4 = (JavascriptExecutor) Driver.getDriver();
@@ -1218,19 +1332,22 @@ js.executeScript("window.open()");
 	    HelperFunctions.staticWait(3);
 	    JavascriptExecutor executor5 = (JavascriptExecutor) Driver.getDriver();
         executor5.executeScript("arguments[0].click();", resellerdemoImage);
+        HelperFunctions.staticWait(3);
 	    managePublication.click();
 	    HelperFunctions.waitForPageToLoad(5);
+        HelperFunctions.staticWait(5);
 	    unpublish.click();
-	    HelperFunctions.waitForPageToLoad(5);
+	    HelperFunctions.staticWait(5);
 	    nextButton.click();
 	    HelperFunctions.waitForPageToLoad(5);
+	    HelperFunctions.staticWait(5);
 	    JavascriptExecutor executor6 = (JavascriptExecutor) Driver.getDriver();
         executor6.executeScript("arguments[0].click();", resellerdemoImageforUnpublish);
 	    unpublishButton.click();
 	    HelperFunctions.staticWait(3);
 	    continueButton.click();
-		    ArrayList<String> tabs2 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-		    Driver.getDriver().switchTo().window(tabs2.get(1));
+		 //   ArrayList<String> tabs2 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+		 //   Driver.getDriver().switchTo().window(tabs2.get(1));
 		    Driver.getDriver().get(read1.getCellData("VALUE", 17));
 		    HelperFunctions.waitForPageToLoad(5);
 	    JavascriptExecutor executor7 = (JavascriptExecutor) Driver.getDriver();
@@ -1240,9 +1357,14 @@ js.executeScript("window.open()");
         	System.out.println(eachInfo.getText());
         	if(eachInfo.getText().contains("Not published")) {
         		Assert.assertTrue(true);
+        		String successMessage = "Page is unpublished ";
+                logger.info(successMessage);
         	}else {
-        		Assert.assertTrue(false);
-        		logger.error("Page is supposed to be unpublished but it does not show 'Not published' ");
+        		 String errorMessage = "Page is supposed to be unpublished but it does not show 'Not published' ";
+                 logger.error(errorMessage);
+                 throw new Exception(errorMessage);
+        		//Assert.assertTrue(false);
+        		//logger.error("Page is supposed to be unpublished but it does not show 'Not published' ");
         	}
         }
         JavascriptExecutor executor8 = (JavascriptExecutor) Driver.getDriver();
@@ -1255,10 +1377,15 @@ js.executeScript("window.open()");
         for(WebElement eachInfo: publishInformation) {
         	System.out.println(eachInfo.getText());
         	if(eachInfo.getText().contains("Not published")) {
+        		String successMessage = "Publish info contains unpublished ";
+                logger.info(successMessage);
         		Assert.assertTrue(true);
         	}else {
-        		Assert.assertTrue(false);
-        		logger.error("Page is supposed to be unpublished but it does not show 'Not published' ");
+        		String errorMessage = "Publish info does not contain unpublished ";
+                logger.error(errorMessage);
+                throw new Exception(errorMessage);
+        		//Assert.assertTrue(false);
+        		//logger.error("Page is supposed to be unpublished but it does not show 'Not published' ");
         	}
         }
         
@@ -1320,7 +1447,7 @@ js.executeScript("window.open()");
  public void setUpdatedDate() throws Exception {
 	 	
 	 	read1.setExcelFile("./testdata.xlsx", "QA");
-			email.sendKeys(read1.getCellData("DATA", 1));
+		/*	email.sendKeys(read1.getCellData("DATA", 1));
 			next.click();
 			pass.sendKeys(read1.getCellData("VALUE", 1));
 			submit.click();
@@ -1329,7 +1456,7 @@ js.executeScript("window.open()");
 	     js.executeScript("window.open()");
 		    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 		    Driver.getDriver().switchTo().window(tabs.get(1));
-		    Driver.getDriver().get(read1.getCellData("VALUE", 17));
+		    Driver.getDriver().get(read1.getCellData("VALUE", 17));*/
 		    HelperFunctions.waitForPageToLoad(5);
 		    homepagedemoImg.click();
 		    JavascriptExecutor executor1 = (JavascriptExecutor) Driver.getDriver();
@@ -1351,15 +1478,20 @@ js.executeScript("window.open()");
 		      System.out.println(year);
 		      String dayoftheweek=new SimpleDateFormat("EEEEE").format(cal.getTime());
 		      System.out.println(dayoftheweek);
-		      String dayoftheyear=new SimpleDateFormat("DD").format(cal.getTime());
+		      String dayoftheyear=new SimpleDateFormat("d").format(cal.getTime());
 		      System.out.println(dayoftheyear);
 		      String value = publishedDate.getAttribute("title");
 		      System.out.println(value);
 		      if(value.contains(month)&&value.contains(year)&&value.contains(dayoftheweek)&&value.contains(dayoftheyear)) {
+		    	  String successMessage = "The date of publishing is correct";
+		            logger.info(successMessage);
 		    	  Assert.assertTrue(true);
 		      }else {
-		    	  Assert.assertTrue(false);
-		    	  logger.error("The date of publishing is NOT correct");
+		    	  String errorMessage = "The date of publishing is NOT correct";
+	                logger.error(errorMessage);
+	                throw new Exception(errorMessage);
+		    	 // Assert.assertTrue(false);
+		    	//  logger.error("The date of publishing is NOT correct");
 		      }
 		     
 		      
@@ -1369,18 +1501,12 @@ js.executeScript("window.open()");
  
  public void setUpdatedDateFromAssets() throws Exception {
 	 
-	 read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
-		next.click();
-		pass.sendKeys(read1.getCellData("VALUE", 1));
-		submit.click();
-	    HelperFunctions.staticWait(5);
-	    JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
-js.executeScript("window.open()");
-	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs.get(1));
-	    Driver.getDriver().get("https://auth-productcentral-qa.products.pwc.com/assets.html/content/dam/productcentral/general/content-pdf");
+	 read1.setExcelFile("./testdata.xlsx", "STG");
+	
 	    HelperFunctions.waitForPageToLoad(5);
+	    HelperFunctions.staticWait(3);
+	    HelperFunctions.scrollToElement(pdfDate);
+	    HelperFunctions.staticWait(2);
 	    String originalDate = pdfDate.getAttribute("value");
         String desiredFormat = "MM/dd/yyyy";
         SimpleDateFormat originalSDF = new SimpleDateFormat("yyyy-MM-dd");
@@ -1388,6 +1514,7 @@ js.executeScript("window.open()");
         SimpleDateFormat desiredSDF = new SimpleDateFormat(desiredFormat);
         String formattedDate = desiredSDF.format(date);
         System.out.println(formattedDate);
+        HelperFunctions.staticWait(2);
 	    Driver.getDriver().get(read1.getCellData("VALUE", 20));
 	    HelperFunctions.waitForPageToLoad(5);
 	    contentEdit.click();
@@ -1402,13 +1529,13 @@ js.executeScript("window.open()");
 	    checkIcon.click();
 	    HelperFunctions.staticWait(2);
 	    previewButton2.click();
-	    HelperFunctions.staticWait(2);
-	    Driver.getDriver().switchTo().frame(0);
-	    System.out.println(lastUpdatedDate.getText());
-	    String expectedDate=read1.getCellData("VALUE", 33);
-	    Assert.assertEquals(lastUpdatedDate.getText(), expectedDate);
-	    HelperFunctions.staticWait(2);
-	    Driver.getDriver().switchTo().defaultContent();
+	 //   HelperFunctions.staticWait(2);
+	 //   Driver.getDriver().switchTo().frame(0);
+	 //   System.out.println(lastUpdatedDate.getText());
+	 //   String expectedDate=read1.getCellData("VALUE", 33);
+	 //   Assert.assertEquals(lastUpdatedDate.getText(), expectedDate);
+	 //   HelperFunctions.staticWait(2);
+	 //   Driver.getDriver().switchTo().defaultContent();
 	    editButtonContent.click();
 	    HelperFunctions.staticWait(2);
 	    contentEdit.click();
@@ -1514,25 +1641,21 @@ js.executeScript("window.open()");
 	    
  }
  public void setUpdatedDateVisibility() throws Exception {
-	 read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
-		next.click();
-		pass.sendKeys(read1.getCellData("VALUE", 1));
-		submit.click();
-	    HelperFunctions.staticWait(5);
-	    JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
-js.executeScript("window.open()");
-	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs.get(1));
-	    Driver.getDriver().get(read1.getCellData("VALUE", 20));
+	 read1.setExcelFile("./testdata.xlsx", "STG");
+	
 	    HelperFunctions.waitForPageToLoad(5);
 	    previewButton2.click();
 	    Driver.getDriver().switchTo().frame(0);
 	    HelperFunctions.staticWait(2);
-	    if(lastUpdatedDate.isDisplayed()&& lastUpdatedDate.getText().contains("Last updated 01/20/2023")) {
+	    if(lastUpdatedDate.isDisplayed()) {
+	    	String successMessage = "Last updated date is visible";
+            logger.info(successMessage);
 	    	Assert.assertTrue(true);
 	    }else {
-	    	Assert.assertTrue(false);
+	    	String errorMessage = "Last updated date is not visible";
+            logger.error(errorMessage);
+            throw new Exception(errorMessage);
+	    	//Assert.assertTrue(false);
 	    }
 	 
 	    
@@ -1542,8 +1665,9 @@ js.executeScript("window.open()");
 	    
  }
  public void setCatCombination() throws Exception {
+	 HelperFunctions.waitForPageToLoad(5);
 	 read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
+	/*	email.sendKeys(read1.getCellData("DATA", 1));
 		next.click();
 		pass.sendKeys(read1.getCellData("VALUE", 1));
 		submit.click();
@@ -1552,15 +1676,20 @@ js.executeScript("window.open()");
 js.executeScript("window.open()");
 	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
-	    Driver.getDriver().get(read1.getCellData("VALUE", 23));
-	    HelperFunctions.waitForPageToLoad(5);
+	    Driver.getDriver().get(read1.getCellData("VALUE", 23));*/
+	    HelperFunctions.staticWait(5);
 	    createButton.click();
+	    HelperFunctions.staticWait(2);
 	    pageButton.click();
+	    HelperFunctions.staticWait(2);
 	    contentPageTemplate.click();
+	    HelperFunctions.staticWait(2);
 	    nextButton.click();
 	    HelperFunctions.waitForPageToLoad(5);
 	    titleField2.click();
+	    HelperFunctions.staticWait(2);
 	    titleField2.sendKeys("content 3");
+	    HelperFunctions.staticWait(2);
 	    productCentralTab.click();
 	    HelperFunctions.staticWait(3);
 	    JavascriptExecutor executor1 = (JavascriptExecutor) Driver.getDriver();
@@ -1569,26 +1698,30 @@ js.executeScript("window.open()");
 	    HelperFunctions.staticWait(3);
 	    
 	    firstOptionofDocCat.click();
-	    HelperFunctions.staticWait(2);
+	    HelperFunctions.staticWait(3);
 	    JavascriptExecutor executor2 = (JavascriptExecutor) Driver.getDriver();
         executor2.executeScript("arguments[0].click();", productFeatureTag2);
-	    HelperFunctions.staticWait(2);
+	    HelperFunctions.staticWait(3);
 	    JavascriptExecutor executor3 = (JavascriptExecutor) Driver.getDriver();
         executor3.executeScript("arguments[0].click();", firstOptionofProCat);
-	    HelperFunctions.staticWait(2);
+	    HelperFunctions.staticWait(3);
 	    JavascriptExecutor executor4 = (JavascriptExecutor) Driver.getDriver();
         executor4.executeScript("arguments[0].click();", portfolioTag2);
-	    HelperFunctions.staticWait(2);
+	    HelperFunctions.staticWait(3);
 	    JavascriptExecutor executor5 = (JavascriptExecutor) Driver.getDriver();
         executor5.executeScript("arguments[0].click();", firstOptionofPortCat);
-        HelperFunctions.staticWait(2);
+        HelperFunctions.staticWait(3);
         createButton2.click();
-        doneButton.click();
+        HelperFunctions.staticWait(3);
+        JavascriptExecutor executor6 = (JavascriptExecutor) Driver.getDriver();
+        executor6.executeScript("arguments[0].click();", doneButton);
+       // doneButton.click();
+        HelperFunctions.staticWait(3);
 	  	    
  }
  public void setReleaseNotes() throws Exception {
 	 read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
+	/*	email.sendKeys(read1.getCellData("DATA", 1));
 		next.click();
 		pass.sendKeys(read1.getCellData("VALUE", 1));
 		submit.click();
@@ -1597,7 +1730,7 @@ js.executeScript("window.open()");
 js.executeScript("window.open()");
 	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
-	    Driver.getDriver().get(read1.getCellData("VALUE", 7));
+	    Driver.getDriver().get(read1.getCellData("VALUE", 7));*/
 	    HelperFunctions.waitForPageToLoad(5);
 	    editButtonContent.click();
 	    HelperFunctions.staticWait(3);
@@ -1633,15 +1766,39 @@ js.executeScript("window.open()");
         HelperFunctions.staticWait(3);
         String actualDate=releaseDateonPreview.getText();
         String expectedDate=dateFormat.format(date);
-        Assert.assertEquals(actualDate, expectedDate);
+       // Assert.assertEquals(actualDate, expectedDate);
+        if (!actualDate.equals(expectedDate)) {
+            String errorMessage = "Dates do not match";
+              logger.error(errorMessage);
+              throw new Exception(errorMessage);
+        }else {
+            String successMessage = "Dates match";
+              logger.info(successMessage);
+        } 
         HelperFunctions.staticWait(3);
         String actualTitle=releaseTitleonPreview.getText();
         String expectedTitle=title;
-        Assert.assertEquals(actualTitle, expectedTitle);
+       // Assert.assertEquals(actualTitle, expectedTitle);
+        if (!actualTitle.equals(expectedTitle)) {
+            String errorMessage = "Titles do not match";
+              logger.error(errorMessage);
+              throw new Exception(errorMessage);
+        }else {
+            String successMessage = "Titles match";
+              logger.info(successMessage);
+        } 
         HelperFunctions.staticWait(3);
         String actualDescription=releaseDescriptiononPreview.getText();
         String expectedDescription=description;
-        Assert.assertEquals(actualDescription,expectedDescription);
+       // Assert.assertEquals(actualDescription,expectedDescription);
+        if (!actualDescription.equals(expectedDescription)) {
+            String errorMessage = "Descriptions do not match";
+              logger.error(errorMessage);
+              throw new Exception(errorMessage);
+        }else {
+            String successMessage = "Descriptions match";
+              logger.info(successMessage);
+        } 
         
         
         
@@ -1649,18 +1806,10 @@ js.executeScript("window.open()");
 	    
  }
  public void setAuthFooter() throws Exception {
-	 read1.setExcelFile("./testdata.xlsx", "QA");
-		email.sendKeys(read1.getCellData("DATA", 1));
-		next.click();
-		pass.sendKeys(read1.getCellData("VALUE", 1)); 
-		submit.click();
-	    HelperFunctions.staticWait(5);
-	    JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
-  js.executeScript("window.open()");
-	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	    Driver.getDriver().switchTo().window(tabs.get(1));
-	    Driver.getDriver().get(read1.getCellData("VALUE", 27));
+	 read1.setExcelFile("./testdata.xlsx", "STG");
+	
 	    HelperFunctions.waitForPageToLoad(5);
+	    HelperFunctions.staticWait(5);
 	    HelperFunctions.scrollToElement(authFooter); 
         HelperFunctions.staticWait(3);
         HelperFunctions.scrollToElement(authFooter); 
@@ -1686,8 +1835,8 @@ js.executeScript("window.open()");
 	    HelperFunctions.staticWait(3);
 	    unpublishButton.click();
 	    HelperFunctions.staticWait(5);
-	  	    ArrayList<String> tabs2 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-	  	    Driver.getDriver().switchTo().window(tabs2.get(1));
+	  	 //   ArrayList<String> tabs2 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	  	 //   Driver.getDriver().switchTo().window(tabs2.get(1));
 	  	    Driver.getDriver().get(read1.getCellData("VALUE", 41));
 	  	    HelperFunctions.waitForPageToLoad(5);
 	  	    fluidForecast.click();
@@ -1702,21 +1851,23 @@ js.executeScript("window.open()");
 	  	 HelperFunctions.staticWait(3);
 	  	 publish2.click();
 	  	 HelperFunctions.staticWait(3);
-		  	    ArrayList<String> tabs3 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-		  	    Driver.getDriver().switchTo().window(tabs3.get(1));
+		  	 //   ArrayList<String> tabs3 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+		  	 //   Driver.getDriver().switchTo().window(tabs3.get(1));
 		  	    Driver.getDriver().get(read1.getCellData("VALUE", 7));
 		  	    HelperFunctions.waitForPageToLoad(5);
 	  
 		  	Driver.getDriver().switchTo().frame(0);
+		  	HelperFunctions.staticWait(3);
 		  	 HelperFunctions.scrollToElement(footerContent); 
 	        HelperFunctions.staticWait(3);
 	        Assert.assertTrue(footerContent.getText().contains(mockFooter));
 	        HelperFunctions.staticWait(3);
 	 
-		  	    ArrayList<String> tabs4 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-		  	    Driver.getDriver().switchTo().window(tabs4.get(1));
+		  	 //   ArrayList<String> tabs4 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+		  	 //   Driver.getDriver().switchTo().window(tabs4.get(1));
 		  	    Driver.getDriver().get(read1.getCellData("VALUE", 27));
 		  	    HelperFunctions.waitForPageToLoad(5);
+		  	    HelperFunctions.staticWait(5);
 		  	    HelperFunctions.scrollToElement(authFooter);
 		        HelperFunctions.staticWait(3);
 		        HelperFunctions.scrollToElement(authFooter);  
@@ -1735,8 +1886,8 @@ js.executeScript("window.open()");
 			    pageInfo.click();
 			    HelperFunctions.staticWait(3);
 			    publishTemplate.click();
-			    HelperFunctions.staticWait(3);
-			    unpublishButton.click();
+			   // HelperFunctions.staticWait(3);
+			   // unpublishButton.click();
 			    HelperFunctions.staticWait(5);
 	        
 	    

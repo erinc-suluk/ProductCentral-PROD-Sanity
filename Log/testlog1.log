@@ -1336,3 +1336,4 @@
 2023-08-03 23:10:01,923 [main] INFO BasePage - asset/page is loaded in the new tab
 2023-08-03 23:10:21,021 [main] INFO BasePage - asset/page is loaded in the new tab
 2023-08-03 23:20:36,446 [main] INFO ProductPage - asset/page is loaded in the new tab
+2023-08-16 21:46:00,414 [main] INFO ProductPage - Only footer content displayed

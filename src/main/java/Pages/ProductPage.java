@@ -1510,25 +1510,14 @@ public void setClickVideo(ExtentTest test) {
 		HelperFunctions.staticWait(2);
 		HelperFunctions.scrollToElement(forYouTitle2);
 		HelperFunctions.staticWait(2);
-		selectDropdown.click();
-		HelperFunctions.staticWait(2);
-		for(WebElement element:docOptionsLabel) {
-			if(element.getText().contains("Video")) {
-				JavascriptExecutor executor = (JavascriptExecutor)Driver.getDriver();
-				executor.executeScript("arguments[0].click();", element);
-				break;
-			}
-		}
-		 WebDriverWait wait4 = new WebDriverWait(Driver.getDriver(), 10);
-		    wait4.until(ExpectedConditions.visibilityOf(resource1));
-		/*List<WebElement> elements = Driver.getDriver().findElements(By.xpath("//div[@data-doc-type='Video']"));
+		List<WebElement> elements = Driver.getDriver().findElements(By.xpath("//div[@data-doc-type='Video']//a"));
 		test.info("Clicking on first video element");
 	    if (!elements.isEmpty()) {
 	        WebElement firstElement = elements.get(0);
 	        JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
 	        executor.executeScript("arguments[0].click();", firstElement);
-	    }*/
-		resource1.click();
+	    }
+		//resource1.click();
 		WebDriverWait wait5 = new WebDriverWait(Driver.getDriver(), 15);
 	    wait5.until(ExpectedConditions.visibilityOf(playButton));
 	    test.info("Verified video opens in a same tab");

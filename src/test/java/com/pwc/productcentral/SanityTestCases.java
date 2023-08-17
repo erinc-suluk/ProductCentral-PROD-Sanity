@@ -1244,7 +1244,8 @@ public class SanityTestCases extends BasePage {
 	}
 	@Test
 	public void WEB_59() throws Exception{
-		String testName = "Verify that when user clicks on the video result, it'll open the video player on the same page";
+		String testName = "Verify that when user clicks on the video result, it'll open the video player on the same page"+
+	"Play & Pause button work properly";
 	    ExtentTest test = extent.createTest(testName);
 
 	    try {

@@ -647,7 +647,7 @@ public class HomePage extends HelperFunctions {
     	test.info("Click on product dropdown");
     	productDropdown.click();
     	test.info("Comparing elements with tag taxonomy in the excelsheet");
-    	 FileInputStream file = new FileInputStream("C:\\Users\\GLBL_RDP_USER_02\\eclipse\\testdata.xlsx");
+    	 FileInputStream file = new FileInputStream("C:\\Users\\GLBL_RDP_USER_02\\git\\ProductCentral-ProdSanity\\ProductCentral-PROD-Sanity\\ProductCentral-ProdSanity\\testdata.xlsx");
          XSSFWorkbook workbook = new XSSFWorkbook(file);
          XSSFSheet sheet = workbook.getSheetAt(1); 
     	HelperFunctions.staticWait(3);

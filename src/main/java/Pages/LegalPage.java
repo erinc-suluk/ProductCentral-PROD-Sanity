@@ -174,7 +174,7 @@ public class LegalPage extends HelperFunctions {
 		  HelperFunctions.staticWait(3);
 		test.info("Compare each value with tag taxonomy on excelsheet");
 		//read1.setExcelFile("./testdata.xlsx", "QA");
-		 FileInputStream file = new FileInputStream("C:\\Users\\GLBL_RDP_USER_01\\eclipse\\testdata.xlsx");
+		 FileInputStream file = new FileInputStream("C:\\Users\\GLBL_RDP_USER_02\\git\\ProductCentral-ProdSanity\\ProductCentral-PROD-Sanity\\ProductCentral-ProdSanity\\testdata.xlsx");
          XSSFWorkbook workbook = new XSSFWorkbook(file);
          XSSFSheet sheet = workbook.getSheetAt(1); 
          

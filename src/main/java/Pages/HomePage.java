@@ -124,7 +124,7 @@ public class HomePage extends HelperFunctions {
 	@FindBy(xpath="(//div[@class='ap-dropdown-option-item'])//input")
 	private static List<WebElement> catDropdownCheckboxes;
 	
-	@FindBy(xpath="(//div[@class='cmp-search-results__card-title'])[position()=1 or position()=2 or position()=3 or position()=4 or position()=5 or position()=6 or position()=7 or position()=8 or position()=9 or position()=10]")
+	@FindBy(xpath="(//div[@class='cmp-search-results__card-tag'])[position()=1 or position()=2 or position()=3 or position()=4 or position()=5 or position()=6 or position()=7 or position()=8 or position()=9 or position()=10]")
 	private static List<WebElement> resultList;
 	
 	@FindBy(xpath="(//a[@href='/us/en/my-products.html'])[1]")
@@ -447,8 +447,8 @@ public class HomePage extends HelperFunctions {
     
 	public void setSortedResult(ExtentTest test) throws Exception {
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(10);
-		HelperFunctions.staticWait(3);
+		//HelperFunctions.waitForPageToLoad(10);
+		//HelperFunctions.staticWait(3);
 		WebDriverWait wait=new WebDriverWait(Driver.getDriver(),10);
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 		test.info("Click on search field");
@@ -458,7 +458,7 @@ public class HomePage extends HelperFunctions {
         searchInput.sendKeys("offering");
         test.info("Click on enter");
         searchInput.sendKeys(Keys.ENTER);
-        HelperFunctions.staticWait(3);
+        //HelperFunctions.staticWait(3);
         test.info("Click on product dropdown");
         WebDriverWait wait2=new WebDriverWait(Driver.getDriver(),10);
 		wait2.until(ExpectedConditions.elementToBeClickable(productDropdown));
@@ -470,6 +470,7 @@ public class HomePage extends HelperFunctions {
         test.info("Click on category dropdown");
         test.info("Selecting all checkboxes");
         catDropdown.click();
+        HelperFunctions.staticWait(3);
         for(int i=0; i<catDropdownCheckboxes.size(); i++)
         {
             if(catDropdownCheckboxes.get(i).isDisplayed() && catDropdownCheckboxes.get(i).isEnabled())
@@ -520,17 +521,18 @@ public class HomePage extends HelperFunctions {
     }
 	public void setDropdown(ExtentTest test) throws Exception {
 		test.info("Wait for the page to load.");
-        HelperFunctions.waitForPageToLoad(5);
+        //HelperFunctions.waitForPageToLoad(5);
     	WebDriverWait wait=new WebDriverWait(Driver.getDriver(),10);
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
         test.info("Clicking on search button");
         searchButton.click();
-        HelperFunctions.staticWait(3); 
+        HelperFunctions.staticWait(2); 
         test.info("Send text on search button");
         searchInput.sendKeys("products");
+        HelperFunctions.staticWait(2); 
         test.info("Clicking on enter");
         searchInput.sendKeys(Keys.ENTER);
-        HelperFunctions.waitForPageToLoad(5);
+        HelperFunctions.waitForPageToLoad(15);
         HelperFunctions.staticWait(3);
         test.info("Verified dropdowns");
         if(productDropdown.isEnabled() && productDropdown.isDisplayed()) 
@@ -547,7 +549,7 @@ public class HomePage extends HelperFunctions {
         test.info("Clicking on product dropdown");
         HelperFunctions.staticWait(2);
         productDropdown.click();
-        HelperFunctions.staticWait(2);
+        wait.until(ExpectedConditions.elementToBeClickable(changeNavigatorCheckbox));
         test.info("Clicking on checkbox");
         changeNavigatorCheckbox.click();
         HelperFunctions.staticWait(3);
@@ -595,7 +597,7 @@ public class HomePage extends HelperFunctions {
         test.info("Clicking on data app on result table");
         HelperFunctions.staticWait(2);
         dataAppTitle.click();
-        HelperFunctions.waitForPageToLoad(5);
+        HelperFunctions.waitForPageToLoad(15);
         HelperFunctions.staticWait(3);
         //Driver.getDriver().switchTo().frame(0);
         if(pdfViewer.isDisplayed()) {

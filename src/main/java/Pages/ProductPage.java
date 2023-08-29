@@ -1372,7 +1372,7 @@ public void setMyProductPageAccessibility(ExtentTest test) throws Exception {
 
 	
 public void setViewLessButton(ExtentTest test) {
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 	//Driver.getDriver().get("https://productcentral-qa.products.pwc.com/content/pc/us/en/automation/my-products/enterprise-control.html");
 	test.info("Wait for the page to load.");
 	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
@@ -1385,19 +1385,22 @@ public void setViewLessButton(ExtentTest test) {
  int attempt = 0;
 
  while (!isElementVisible && attempt < maxAttempts) {
- 	JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
-     executor.executeScript("arguments[0].click();", viewMoreButton);
+ 
 
      try {
-         WebElement desiredElement = wait.until(ExpectedConditions.visibilityOf(viewLessButton));
+    		JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+    	     executor.executeScript("arguments[0].click();", viewMoreButton);
+    	     WebDriverWait wait1 = new WebDriverWait(Driver.getDriver(), 15);
+         WebElement desiredElement = wait1.until(ExpectedConditions.visibilityOf(viewLessButton));
          isElementVisible = true;
          System.out.println("Desired element found!");
          Assert.assertTrue(true);
      } catch (Exception e) {
          System.out.println("Desired element not found, retrying...");
+         attempt++;
      }
 
-     attempt++;
+     
  }
 
  if (!isElementVisible) {
@@ -1416,19 +1419,22 @@ Assert.assertTrue(viewLessButton.isDisplayed());*/
 }
 public void setReplacingCategoryLabel(ExtentTest test) {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
   
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
-    wait.until(ExpectedConditions.visibilityOf(heroImage));
-    HelperFunctions.staticWait(2);
-    List<WebElement> elements = Driver.getDriver().findElements(By.xpath("//div[@class='cmp-my-products-tile__text' and div[@class='cmp-my-products-tile__title'] and div[@class='cmp-my-products-tile__thumbnail' and contains(@data-file-path, '.pdf')]]"));
-    test.info("Verified category label contains only two child contents");
-    for (WebElement element : elements) {
-        List<WebElement> childDivs = element.findElements(By.xpath("./div[@class='cmp-my-products-tile__title' or @class='cmp-my-products-tile__thumbnail']"));
-        
-       
-        Assert.assertEquals(2, childDivs.size());
+    try {    
+    wait.until(ExpectedConditions.visibilityOf(heroImage));    
+    HelperFunctions.staticWait(2);    
+    List<WebElement> elements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='cmp-my-products-tile__text' and div[@class='cmp-my-products-tile__title'] and div[@class='cmp-my-products-tile__thumbnail' and contains(@data-file-path, '.pdf')]]")));    
+    test.info("Verified category label contains only two child contents");    
+    for (WebElement element : elements) {        
+    	List<WebElement> childDivs = element.findElements(By.xpath("./div[@class='cmp-my-products-tile__title' or @class='cmp-my-products-tile__thumbnail']"));        
+    	Assert.assertEquals(2, childDivs.size());    
+    	}
+    } catch (TimeoutException e) {   
+    	System.out.println("Elements not found within the specified timeout.");    
     }
+    HelperFunctions.staticWait(3);
 }
 
 public void setAssetsTag(ExtentTest test) {

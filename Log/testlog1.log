@@ -1516,3 +1516,45 @@
 2023-08-23 21:17:39,452 [main] INFO HomePage - pdf viewer is displayed
 2023-08-23 21:18:27,184 [main] INFO BasePage - asset/page is loaded in the new tab
 2023-08-23 21:18:45,336 [main] INFO BasePage - asset/page is loaded in the new tab
+2023-08-25 10:25:12,487 [main] INFO ProductPage - Only footer content displayed
+2023-08-25 10:33:45,076 [main] ERROR ProductListingPage - Links do not match
+2023-08-25 10:33:58,784 [main] INFO ResellerPage - Page title displays the name of the product
+2023-08-25 10:33:58,793 [main] INFO ResellerPage - Page title displays the name of the product
+2023-08-25 10:33:58,801 [main] INFO ResellerPage - Page title displays the name of the product
+2023-08-25 10:33:58,809 [main] INFO ResellerPage - Page title displays the name of the product
+2023-08-25 10:33:58,817 [main] INFO ResellerPage - Page title displays the name of the product
+2023-08-25 10:33:58,825 [main] INFO ResellerPage - Page title displays the name of the product
+2023-08-25 10:33:58,832 [main] INFO ResellerPage - Page title displays the name of the product
+2023-08-25 10:33:58,839 [main] INFO ResellerPage - Page title displays the name of the product
+2023-08-25 10:33:58,846 [main] INFO ResellerPage - Page title displays the name of the product
+2023-08-25 10:33:58,855 [main] INFO ResellerPage - Page title displays the name of the product
+2023-08-25 10:34:20,465 [main] INFO LegalPage - Document tiles are equal 3 lines
+2023-08-25 10:34:20,481 [main] INFO LegalPage - Document tiles are equal 3 lines
+2023-08-25 10:34:20,497 [main] INFO LegalPage - Document tiles are equal 3 lines
+2023-08-25 10:34:20,512 [main] INFO LegalPage - Document tiles are equal 3 lines
+2023-08-25 10:34:20,528 [main] INFO LegalPage - Document tiles are equal 3 lines
+2023-08-25 10:34:20,544 [main] INFO LegalPage - Document tiles are equal 3 lines
+2023-08-25 10:34:20,559 [main] INFO LegalPage - Document tiles are equal 3 lines
+2023-08-25 10:34:20,559 [main] INFO LegalPage - Document tiles are equal 3 lines
+2023-08-25 10:34:20,575 [main] INFO LegalPage - Document tiles are equal 3 lines
+2023-08-25 10:34:20,590 [main] INFO LegalPage - Document tiles are equal 3 lines
+2023-08-25 10:34:56,973 [main] INFO HomePage - This component contains a link/button for my product page
+2023-08-25 10:37:37,210 [main] INFO BasePage - The collapse button is displayed
+2023-08-25 10:39:19,268 [main] INFO HomePage - Each link is displayed
+2023-08-25 10:39:19,284 [main] INFO HomePage - Each link is displayed
+2023-08-25 10:39:26,384 [main] INFO HomePage - Each link is not displayed
+2023-08-25 10:39:26,399 [main] INFO HomePage - Each link is not displayed
+2023-08-25 10:40:24,378 [main] INFO HomePage - Results are sorted
+2023-08-25 10:40:37,703 [main] INFO ProductListingPage - Texts are matching
+2023-08-25 10:40:50,202 [main] INFO ProductListingPage - Texts are matching
+2023-08-25 10:41:00,306 [main] INFO ProductListingPage - Texts are matching
+2023-08-25 10:41:12,738 [main] INFO ProductListingPage - Texts are matching
+2023-08-25 10:41:17,010 [main] INFO BasePage - No change to the home page or side nave
+2023-08-25 10:41:51,920 [main] INFO HomePage - Product Dropdown is enabled and visible
+2023-08-25 10:41:59,105 [main] INFO HomePage - Category Dropdown is enabled and visible
+2023-08-25 10:42:09,422 [main] INFO HomePage - Texts are matching
+2023-08-25 10:42:16,542 [main] INFO HomePage - pdf viewer is displayed
+2023-08-25 10:44:42,650 [main] INFO BasePage - asset/page is loaded in the new tab
+2023-08-25 10:45:01,961 [main] INFO BasePage - asset/page is loaded in the new tab
+2023-08-25 17:29:22,763 [main] INFO ProductPage - Only footer content displayed
+2023-08-25 17:29:54,102 [main] INFO ProductPage - Footer content and links are displayed

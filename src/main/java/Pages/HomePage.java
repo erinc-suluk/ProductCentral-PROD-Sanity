@@ -765,9 +765,8 @@ public class HomePage extends HelperFunctions {
     
     public void setSearchResult(ExtentTest test) throws Exception {
     	 test.info("Wait for the page to load.");
- 	   HelperFunctions.waitForPageToLoad(5);
- 	  HelperFunctions.staticWait(3);
- 	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+ 	   HelperFunctions.waitForPageToLoad(30);
+ 	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 	    wait.until(ExpectedConditions.visibilityOf(searchButton));
 	   test.info("Click on search field");
     	searchButton.click();
@@ -776,9 +775,10 @@ public class HomePage extends HelperFunctions {
            searchInput.sendKeys("products");
            test.info("Click on enter");
            searchInput.sendKeys(Keys.ENTER);
-           HelperFunctions.staticWait(3);
+           wait.until(ExpectedConditions.visibilityOf(productDropdown));
            test.info("Select product from product dropdown");
            productDropdown.click();
+           HelperFunctions.staticWait(3);
         String expectedProductName="change-navigator";
         for(int i=0; i<productCheckbox.size(); i++) {
             if(productCheckbox.get(i).getAttribute("value").equalsIgnoreCase(expectedProductName)) {
@@ -804,7 +804,7 @@ public class HomePage extends HelperFunctions {
         test.info("Verified selecting product appears on result table");
         test.info("Click on product on result table");
         resultContainer.click();
-        HelperFunctions.staticWait(3);
+        wait.until(ExpectedConditions.visibilityOf(oneStopTitle));
       //  breadCrumb.click();
      //   HelperFunctions.staticWait(3);
         String actualTitle=oneStopTitle.getText();
@@ -822,13 +822,13 @@ public class HomePage extends HelperFunctions {
         test.info("Click on breadcrumb");
         HelperFunctions.staticWait(2);
         breadCrumb.click();
-        HelperFunctions.staticWait(3);
+        wait.until(ExpectedConditions.visibilityOf(searchProducts));
         test.info("Click on search products");
         searchProducts.click();
         HelperFunctions.staticWait(2);
         test.info("Send expected title ");
         searchProducts.sendKeys(expectedTitle);
-        HelperFunctions.staticWait(2);
+        wait.until(ExpectedConditions.visibilityOf(optionItem));
         test.info("Click on product");
         optionItem.click();
         HelperFunctions.staticWait(3);
@@ -918,8 +918,7 @@ public class HomePage extends HelperFunctions {
         
     public void setTilesHasLoginLink(ExtentTest test) throws Exception {
     	test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(5);
-		HelperFunctions.staticWait(3);
+		HelperFunctions.waitForPageToLoad(30);
 		 WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
 			wait3.until(ExpectedConditions.visibilityOf(FirsthomePageTile));
 		if(FirsthomePageTile.getText().contains("My Products")&&FirsthomePageTile.getText().contains("Login to My Products")) {

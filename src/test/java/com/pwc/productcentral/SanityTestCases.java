@@ -227,8 +227,8 @@ public class SanityTestCases extends BasePage {
         ExtentTest test = extent.createTest(testName);
 
         try {
-            Driver.getDriver().get(read1.getCellData("VALUE", 15));
-            lpo.setLogin2();
+            Driver.getDriver().get(read1.getCellData("VALUE", 51));
+            lpo.setLogin4();
     	    pp.setErrorPage(test);
             test.pass("Test passed");
         } catch (Exception e) {
@@ -1303,7 +1303,7 @@ public class SanityTestCases extends BasePage {
 	}
 	@Test
 	public void WEB_62() throws Exception{
-		String testName = "Verify that when user clicks on the video result, it'll open the video player on the same page";
+		String testName = "Verify that privacy hub page support authoring rich text,bullets,numbered lists,links(open in a new tab)";
 	    ExtentTest test = extent.createTest(testName);
 
 	    try {

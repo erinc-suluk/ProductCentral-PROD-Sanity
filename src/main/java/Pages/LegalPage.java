@@ -115,7 +115,7 @@ public class LegalPage extends HelperFunctions {
     }
 	public void setDescriptionOfTiles(ExtentTest test) throws Exception {
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(15);
+		HelperFunctions.waitForPageToLoad(30);
 		 HelperFunctions.staticWait(3);
 		test.info("Getting each description css value");
 		for(WebElement eachDescription: descriptionOfTiles) {
@@ -138,7 +138,7 @@ public class LegalPage extends HelperFunctions {
 	
 	public void setContentPageTags(ExtentTest test) throws Exception {
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(15);
+		HelperFunctions.waitForPageToLoad(30);
 		 HelperFunctions.staticWait(3);
 		JavascriptExecutor js2 = (JavascriptExecutor) Driver.getDriver();
 	    js2.executeScript("window.scrollBy(0,250)", "");
@@ -170,7 +170,7 @@ public class LegalPage extends HelperFunctions {
 	}
 	public void setDisplayTilePerDocumentCat(ExtentTest test) throws Exception {
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(15);
+		HelperFunctions.waitForPageToLoad(30);
 		  HelperFunctions.staticWait(3);
 		test.info("Compare each value with tag taxonomy on excelsheet");
 		//read1.setExcelFile("./testdata.xlsx", "QA");
@@ -205,17 +205,17 @@ public class LegalPage extends HelperFunctions {
 	
 	public void setBreadcrumb(ExtentTest test) throws Exception {
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(15);
-		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+		HelperFunctions.waitForPageToLoad(30);
+		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 	    wait.until(ExpectedConditions.visibilityOf(legalTilesTitle.get(0)));
 		test.info("Clicking on a tile");
 		legalTilesTitle.get(0).click();
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(15);
+		HelperFunctions.waitForPageToLoad(30);
 		 HelperFunctions.staticWait(3);  
 		test.info("Clicking on breadcrumb");
 		breadcrumbLinks.get(0).click();
-		HelperFunctions.waitForPageToLoad(15);
+		HelperFunctions.waitForPageToLoad(30);
 		 HelperFunctions.staticWait(3);  
 		String currentUrl = Driver.getDriver().getCurrentUrl();
 		 Assert.assertTrue(currentUrl.endsWith("/content/pc/us/en/legal.html"));
@@ -240,14 +240,15 @@ public class LegalPage extends HelperFunctions {
 	}
 	public void setFilterOptions(ExtentTest test) throws Exception {
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(15);
+		HelperFunctions.waitForPageToLoad(30);
 		HelperFunctions.staticWait(2);
+		WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 30);
 		test.info("Scroll down specific terms");
 		HelperFunctions.scrollToElement(specificTerms);
 		HelperFunctions.staticWait(2);
 		test.info("Click on a specific terms' element");
         specificTermsItems.get(0).click();
-        HelperFunctions.waitForPageToLoad(15);
+        wait3.until(ExpectedConditions.visibilityOf(sortingDropdown));
         test.info("Clcik on sort dropdown");
 	    sortingDropdown.click();
 	    HelperFunctions.staticWait(2);

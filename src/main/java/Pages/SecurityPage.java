@@ -33,7 +33,7 @@ public class SecurityPage extends HelperFunctions {
 	
 	public void setSecurityTiles(ExtentTest test) {
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(15);
+		HelperFunctions.waitForPageToLoad(30);
 		 HelperFunctions.staticWait(3);
 		boolean isAllDisplayed = true;
         for(WebElement eachTiles : securityTiles){

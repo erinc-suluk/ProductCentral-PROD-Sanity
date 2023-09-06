@@ -585,7 +585,7 @@ public static void setLeft() {
 
 public static void setAllSectionsOnHeader(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 	HelperFunctions.staticWait(3);
 	test.info("Verified pwc logo, search field and user initials are visible.");
 	if(myProductsPageLogo.isDisplayed() && search.isDisplayed() && userInitials.isDisplayed()) {
@@ -602,7 +602,7 @@ public static void setAllSectionsOnHeader(ExtentTest test) throws Exception {
 
 public static void setScrollFunctionality(ExtentTest test)  {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 	HelperFunctions.staticWait(3);
 	JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
 	js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");           
@@ -612,7 +612,7 @@ public static void setScrollFunctionality(ExtentTest test)  {
     HelperFunctions.staticWait(3);
     JavascriptExecutor executor2 = (JavascriptExecutor) Driver.getDriver();
     executor2.executeScript("arguments[0].click();", legalLink);
-    HelperFunctions.waitForPageToLoad(10);
+    HelperFunctions.waitForPageToLoad(30);
 	HelperFunctions.staticWait(3);
     JavascriptExecutor js2 = (JavascriptExecutor)Driver.getDriver();
 	js2.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");           
@@ -621,7 +621,7 @@ public static void setScrollFunctionality(ExtentTest test)  {
     HelperFunctions.staticWait(3);
     JavascriptExecutor executor3 = (JavascriptExecutor) Driver.getDriver();
     executor3.executeScript("arguments[0].click();", productsLink);
-    HelperFunctions.waitForPageToLoad(10);
+    HelperFunctions.waitForPageToLoad(30);
 	HelperFunctions.staticWait(3);
     JavascriptExecutor js3 = (JavascriptExecutor)Driver.getDriver();
    	js3.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");           
@@ -631,7 +631,7 @@ public static void setScrollFunctionality(ExtentTest test)  {
     HelperFunctions.staticWait(3);
     JavascriptExecutor executor4 = (JavascriptExecutor) Driver.getDriver();
     executor4.executeScript("arguments[0].click();", securityLink);
-    HelperFunctions.waitForPageToLoad(10);
+    HelperFunctions.waitForPageToLoad(30);
 	HelperFunctions.staticWait(3);
     JavascriptExecutor js4 = (JavascriptExecutor)Driver.getDriver();
    	js4.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");           
@@ -777,7 +777,7 @@ public static void setLeftNavigationItems3() throws Exception {
     }}
 public static void setCollapseButtonImg(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(5);
+	HelperFunctions.waitForPageToLoad(60);
 	HelperFunctions.staticWait(3);
 	test.info("Clicking on collapse button");
 	JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
@@ -822,7 +822,7 @@ public static void setCollapseButtonImg(ExtentTest test) throws Exception {
 	}HelperFunctions.staticWait(3);}
 public static void setCollapseExpandButton(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(5);
+	HelperFunctions.waitForPageToLoad(60);
 	HelperFunctions.staticWait(3);
 	test.info("Clicking on collapse button");
 	JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
@@ -846,9 +846,9 @@ public static void setCollapseExpandButton(ExtentTest test) throws Exception {
 	}
 public static void setPrivacyCookiePageItems(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(5);
-	HelperFunctions.staticWait(3);
-	 WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 10);
+	HelperFunctions.waitForPageToLoad(30);
+	//HelperFunctions.staticWait(3);
+	 WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 30);
 	   	wait6.until(ExpectedConditions.visibilityOf(phText));
 	Assert.assertTrue(phText.isDisplayed());
 	test.info("Verified privacy text is displayed");
@@ -862,7 +862,7 @@ public static void setPrivacyCookiePageItems(ExtentTest test) throws Exception {
 	HelperFunctions.staticWait(2);
 	test.info("Clicked on the link");
 	phLink.click();
-	HelperFunctions.waitForPageToLoad(5);
+	HelperFunctions.waitForPageToLoad(30);
 	HelperFunctions.staticWait(3);
 	 ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
@@ -881,9 +881,9 @@ public static void setPrivacyCookiePageItems(ExtentTest test) throws Exception {
 	}
 public static void setPrivacyPageItems(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(5);
-	HelperFunctions.staticWait(3);
-	 WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 10);
+	HelperFunctions.waitForPageToLoad(30);
+	//HelperFunctions.staticWait(3);
+	 WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 30);
 	   	wait6.until(ExpectedConditions.visibilityOf(phText));
 	Assert.assertTrue(phText.isDisplayed());
 	test.info("Verified privacy text is displayed");
@@ -913,7 +913,7 @@ public static void setPrivacyPageItems(ExtentTest test) throws Exception {
 	HelperFunctions.staticWait(2);
 	test.info("Clicked on the link");
 	phLink2.click();
-	HelperFunctions.waitForPageToLoad(5);
+	HelperFunctions.waitForPageToLoad(30);
 	HelperFunctions.staticWait(3);
 	 ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
 	    Driver.getDriver().switchTo().window(tabs.get(1));
@@ -932,9 +932,9 @@ public static void setPrivacyPageItems(ExtentTest test) throws Exception {
 	}
 public static void setPrivacyPageItems2(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(5);
-	HelperFunctions.staticWait(3);
-	 WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 10);
+	HelperFunctions.waitForPageToLoad(30);
+	//HelperFunctions.staticWait(3);
+	 WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 30);
 	   	wait6.until(ExpectedConditions.visibilityOf(phHeader));
 	//Assert.assertTrue(phText.isDisplayed());
 	test.info("Verified privacy text is displayed");

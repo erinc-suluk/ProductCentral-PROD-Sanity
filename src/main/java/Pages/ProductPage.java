@@ -334,7 +334,7 @@ public class ProductPage extends HelperFunctions {
 	
 	public void setFooterWithoutLogin(ExtentTest test) throws Exception {
 		 test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(10);
+		//HelperFunctions.waitForPageToLoad(10);
 		HelperFunctions.staticWait(3);
 		test.info("Scroll down to footer content");
 		HelperFunctions.scrollToElement(footerContent);
@@ -354,9 +354,9 @@ public class ProductPage extends HelperFunctions {
 	
 	public void setFooterWithLogin(ExtentTest test) throws Exception {
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(10);
+		//HelperFunctions.waitForPageToLoad(10);
 		
-		  WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+		  WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 		    wait.until(ExpectedConditions.visibilityOf(heroImage));
 		    HelperFunctions.staticWait(3);
 		test.info("Scroll down to footer content");
@@ -418,8 +418,8 @@ public class ProductPage extends HelperFunctions {
 	
 	public void setErrorPage(ExtentTest test)throws Exception {
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(10);
-		HelperFunctions.staticWait(10); 
+		//HelperFunctions.waitForPageToLoad(10);
+		//HelperFunctions.staticWait(10); 
 		//HelperFunctions.staticWait(5);
 		//JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
         //js.executeScript("window.open()");
@@ -428,11 +428,11 @@ public class ProductPage extends HelperFunctions {
 	    read1.setExcelFile("./testdata.xlsx", "PROD");
 	    test.info("Go to error page");
 	   // Driver.getDriver().get(read1.getCellData("VALUE", 36));
-	    Driver.getDriver().get("https://productcentral.products.pwc.com/content/pc/us/en/my-products/product-3.html");
+	    //Driver.getDriver().get("https://productcentral.products.pwc.com/content/pc/us/en/my-products/product-3.html");
 	    test.info("Wait for the page to load.");
-	    HelperFunctions.waitForPageToLoad(10);
-	    HelperFunctions.staticWait(5); 
-	    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+	    //HelperFunctions.waitForPageToLoad(30);
+	    //HelperFunctions.staticWait(5); 
+	    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 	    wait.until(ExpectedConditions.visibilityOf(errorTitle));
 	    test.info("Verified error page's image, title and description are visible.");
 		if(errorImage.isDisplayed() && errorTitle.isDisplayed() &errorDescription.isDisplayed()) {
@@ -454,21 +454,21 @@ public class ProductPage extends HelperFunctions {
 	
 	public void setDisplayResources(ExtentTest test) throws Exception {
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(10);
+		//HelperFunctions.waitForPageToLoad(10);
 		
 		test.info("Click on view all");
-		 WebDriverWait wait=new WebDriverWait(Driver.getDriver(),15);
+		 WebDriverWait wait=new WebDriverWait(Driver.getDriver(),30);
 		    ExpectedCondition<WebElement> condition=ExpectedConditions.elementToBeClickable(viewAll);
 		    wait.until(condition);
-		    HelperFunctions.staticWait(3);
+		    //HelperFunctions.staticWait(3);
 		viewAll.click();
 		test.info("Select a product in product container");
-		HelperFunctions.staticWait(3);
+		HelperFunctions.staticWait(5);
 	    for(int i=0;i<allProducts2.size();i++) {
 			allProducts2.get(2).click();
 			break;
 	    }
-	    HelperFunctions.waitForPageToLoad(5);
+	    HelperFunctions.waitForPageToLoad(30);
 	    HelperFunctions.staticWait(3);
 	    test.info("Scroll down all resources");
 		HelperFunctions.scrollToElement(allResources2); 
@@ -513,9 +513,9 @@ public class ProductPage extends HelperFunctions {
 	    }
 public void setNewTabAssets(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 	
-	  WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+	  WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 	    wait.until(ExpectedConditions.visibilityOf(heroImage));
 	    HelperFunctions.staticWait(5);
 	/*for(int i=0;i<allProducts.size();i++) {
@@ -535,7 +535,7 @@ public void setNewTabAssets(ExtentTest test) throws Exception {
     }
     HelperFunctions.staticWait(3);
     test.info("Verified asset/page is loaded in the new tab");
-    WebDriverWait wait4 = new WebDriverWait(Driver.getDriver(), 10);
+    WebDriverWait wait4 = new WebDriverWait(Driver.getDriver(), 30);
     wait4.until(ExpectedConditions.numberOfWindowsToBe(2));
     Set<String> windowHandles2 = Driver.getDriver().getWindowHandles();
     Assert.assertEquals(windowHandles2.size(), 2, "Expected two windows to be open, but found " + windowHandles2.size());
@@ -548,9 +548,9 @@ public void setNewTabAssets(ExtentTest test) throws Exception {
 
 public void setMyProductSitemap(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 	
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
     wait.until(ExpectedConditions.visibilityOf(heroImage));
     HelperFunctions.staticWait(3);
 	test.info("Verified my product item is visible");
@@ -569,13 +569,13 @@ public void setMyProductSitemap(ExtentTest test) throws Exception {
 
 public void setTagsAccompany(ExtentTest test) {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 	
    /* for(int i=0;i<allProducts.size();i++) {
         allProducts.get(0).click();
         break;}
     HelperFunctions.staticWait(3);*/
-	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 	    wait.until(ExpectedConditions.visibilityOf(heroImage));
 	    HelperFunctions.staticWait(3);
 	test.info("Scroll down view more button");
@@ -616,9 +616,9 @@ public void setTagsAccompany(ExtentTest test) {
 
 public void setMyProductSearch(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 	
-	WebDriverWait wait=new WebDriverWait(Driver.getDriver(),15);
+	WebDriverWait wait=new WebDriverWait(Driver.getDriver(),30);
 	wait.until(ExpectedConditions.elementToBeClickable(myProductSearchField));
 	HelperFunctions.staticWait(3);
 	test.info("Click on my product search field");
@@ -629,7 +629,7 @@ public void setMyProductSearch(ExtentTest test) throws Exception {
 	HelperFunctions.staticWait(2);
 	test.info("Click on enter");
 	myProductSearchField.sendKeys(Keys.ENTER);
-	HelperFunctions.waitForPageToLoad(3);
+	wait.until(ExpectedConditions.visibilityOf(sortingDropdown));
 	HelperFunctions.staticWait(2);
 	test.info("Veried required dropdowns are visible");
 	if(productDropdown.isEnabled() && catDropdown.isDisplayed() && sortingDropdown.isDisplayed()) {
@@ -647,13 +647,13 @@ public void setMyProductSearch(ExtentTest test) throws Exception {
 }
 
 public void setResourcesBasedonProducts(ExtentTest test) {
-	HelperFunctions.waitForPageToLoad(5);
+	//HelperFunctions.waitForPageToLoad(5);
 	
 	//Driver.getDriver().get("https://productcentral-qa.products.pwc.com/content/pc/us/en/automation/my-products/transparency-hub.html");
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 	
-	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 	    wait.until(ExpectedConditions.visibilityOf(heroImage));
 	    HelperFunctions.staticWait(3);
 	//test.info("Click on close banner");
@@ -680,7 +680,7 @@ public void setResourcesBasedonProducts(ExtentTest test) {
     String text1=resource1.getText();
     System.out.println(text1);
     HelperFunctions.staticWait(3);
-    HelperFunctions.waitForPageToLoad(5); 
+    HelperFunctions.waitForPageToLoad(30); 
     test.info("Click on view all");
     HelperFunctions.scrollToElement(viewAll);
     HelperFunctions.staticWait(2);
@@ -718,16 +718,16 @@ public void setNotSupportMultiSelect(ExtentTest test) {
 	//HelperFunctions.waitForPageToLoad(3);
 	//product2.click();
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 
-	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 	    wait.until(ExpectedConditions.visibilityOf(heroImage));
 		HelperFunctions.staticWait(3);
     for(int i=0;i<allProducts.size();i++) {
 		allProducts.get(0).click();
 		break;
     }
-	HelperFunctions.waitForPageToLoad(3);
+	HelperFunctions.waitForPageToLoad(30);
 	test.info("Scroll down document dropdown");
 	HelperFunctions.scrollToElement(documentDropdown);
 	HelperFunctions.staticWait(3);
@@ -753,9 +753,9 @@ public void setNotSupportMultiSelect(ExtentTest test) {
 
 public void setLoadMoreButton(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 	
-	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 	    wait.until(ExpectedConditions.visibilityOf(heroImage));
 	    HelperFunctions.staticWait(3);
 	/*viewAll.click();
@@ -774,10 +774,10 @@ public void setLoadMoreButton(ExtentTest test) throws Exception {
 		test.info("Click on view more button");
 	   JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
 	   executor.executeScript("arguments[0].click();", viewMoreButton);
-	   HelperFunctions.staticWait(3);
-	   WebDriverWait wait1 = new WebDriverWait(Driver.getDriver(), 15);
+	   //HelperFunctions.staticWait(3);
+	   WebDriverWait wait1 = new WebDriverWait(Driver.getDriver(), 30);
 		    wait1.until(ExpectedConditions.visibilityOf(secondForYou));
-	   HelperFunctions.staticWait(3);
+	   //HelperFunctions.staticWait(3);
 	   Assert.assertTrue(secondForYou.isDisplayed());
 	
       HelperFunctions.staticWait(3);
@@ -948,14 +948,14 @@ public void setActiveTab() throws Exception {
 
 public void setFirstTabActive(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 
 	//myProductOnLeftNavigation.click();
 	//HelperFunctions.waitForPageToLoad(5);
-	WebDriverWait wait=new WebDriverWait(Driver.getDriver(),15);
+	WebDriverWait wait=new WebDriverWait(Driver.getDriver(),30);
     ExpectedCondition<WebElement> condition=ExpectedConditions.elementToBeClickable(viewAll);
     wait.until(condition);
-	HelperFunctions.staticWait(3);
+	//HelperFunctions.staticWait(3);
     test.info("Click on view all");
 	viewAll.click();
 	HelperFunctions.staticWait(5);
@@ -988,15 +988,15 @@ public void setFirstTabActive(ExtentTest test) throws Exception {
 		allProducts2.get(2).click();
 		break;
     }
-	HelperFunctions.waitForPageToLoad(10);
+	HelperFunctions.waitForPageToLoad(30);
 
-	WebDriverWait wait2=new WebDriverWait(Driver.getDriver(),10);
+	WebDriverWait wait2=new WebDriverWait(Driver.getDriver(),30);
     ExpectedCondition<WebElement> condition2=ExpectedConditions.elementToBeClickable(viewAll);
     wait2.until(condition2);
-	HelperFunctions.staticWait(3);
+	//HelperFunctions.staticWait(3);
     test.info("Click on view all");
 	viewAll.click();
-	HelperFunctions.staticWait(2);
+	HelperFunctions.staticWait(5);
     if(eyeIcon!=null) {
     	 String successMessage2 = "First tab is active";
          logger.info(successMessage2);
@@ -1168,9 +1168,9 @@ public void setRelatedProducts() throws Exception {
 
 public void setAllResourcesContent(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
 
-	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 	    wait.until(ExpectedConditions.visibilityOf(heroImage));
 	/*	HelperFunctions.staticWait(3);
 	for(int i=0;i<allProducts.size();i++) {
@@ -1238,15 +1238,15 @@ public void setTechnicalSupport() throws Exception {
 }
 public void setClickAvatar(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-    HelperFunctions.waitForPageToLoad(10);
+    //HelperFunctions.waitForPageToLoad(10);
  
-    WebDriverWait wait=new WebDriverWait(Driver.getDriver(),15);
+    WebDriverWait wait=new WebDriverWait(Driver.getDriver(),30);
     ExpectedCondition<WebElement> condition=ExpectedConditions.elementToBeClickable(avatar);
     wait.until(condition);
-    HelperFunctions.staticWait(2);
+    //HelperFunctions.staticWait(2);
     test.info("Clicking on user initials");
     avatar.click();
-    HelperFunctions.staticWait(2);
+    wait.until(ExpectedConditions.visibilityOf(logout));
     if(logout.isDisplayed()) {
         Assert.assertTrue(true);
     }else {
@@ -1259,8 +1259,8 @@ public void setClickAvatar(ExtentTest test) throws Exception {
 
 }
 public void setMyProductPageAccessibility() throws Exception {
-    HelperFunctions.waitForPageToLoad(10);
-    HelperFunctions.staticWait(2);
+	WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+    wait.until(ExpectedConditions.visibilityOf(myproductTitle));
    
     if(myproductTitle.isDisplayed()) {
         Assert.assertTrue(true);
@@ -1269,14 +1269,14 @@ public void setMyProductPageAccessibility() throws Exception {
         logger.error(errorMessage);
         throw new Exception(errorMessage);
     }
-
+    HelperFunctions.staticWait(3);
 }
 	
 public void setBannerSticky(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-    HelperFunctions.waitForPageToLoad(10);
+    //HelperFunctions.waitForPageToLoad(10);
   
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
     wait.until(ExpectedConditions.visibilityOf(heroImage));
     HelperFunctions.staticWait(2);
     test.info("Checking if the banner is displayed");
@@ -1304,9 +1304,9 @@ public void setBannerSticky(ExtentTest test) throws Exception {
 	
 public void setBannerClose(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-    HelperFunctions.waitForPageToLoad(10);
+    //HelperFunctions.waitForPageToLoad(10);
 
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
     wait.until(ExpectedConditions.visibilityOf(heroImage));
     HelperFunctions.staticWait(2);
     test.info("Checking if the banner is displayed");
@@ -1336,7 +1336,7 @@ public void setDocumentsAccesibility(ExtentTest test) throws Exception {
 	test.info("Go to document pdf page");
     Driver.getDriver().get("https://productcentral.products.pwc.com/en_us/products/connected-solutions/myproducts/PwC-IGP-RRB-Dashboard-Training-Guide.pdf");
     test.info("Wait for the page to load.");
-    HelperFunctions.waitForPageToLoad(15);
+    HelperFunctions.waitForPageToLoad(30);
     HelperFunctions.staticWait(2);
     String currentUrl=Driver.getDriver().getCurrentUrl();
     if(currentUrl.startsWith("https://login")) {
@@ -1354,11 +1354,11 @@ public void setDocumentsAccesibility(ExtentTest test) throws Exception {
 
 public void setMyProductPageAccessibility(ExtentTest test) throws Exception {
 	test.info("Wait for the page to load.");
-    HelperFunctions.waitForPageToLoad(10);
+    //HelperFunctions.waitForPageToLoad(10);
    
     WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 15);
    	wait6.until(ExpectedConditions.visibilityOf(myproductTitle));
-    HelperFunctions.staticWait(2);
+    //HelperFunctions.staticWait(2);
     if(myproductTitle.isDisplayed()) {
         Assert.assertTrue(true);
     }else {
@@ -1375,7 +1375,7 @@ public void setViewLessButton(ExtentTest test) {
 	//HelperFunctions.waitForPageToLoad(10);
 	//Driver.getDriver().get("https://productcentral-qa.products.pwc.com/content/pc/us/en/automation/my-products/enterprise-control.html");
 	test.info("Wait for the page to load.");
-	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+	 WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 	    wait.until(ExpectedConditions.visibilityOf(heroImage));
 	test.info("Scroll down for you title");
 	HelperFunctions.scrollToElement(forYouTitle2);
@@ -1421,7 +1421,7 @@ public void setReplacingCategoryLabel(ExtentTest test) {
 	test.info("Wait for the page to load.");
 	//HelperFunctions.waitForPageToLoad(10);
   
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
     try {    
     wait.until(ExpectedConditions.visibilityOf(heroImage));    
     HelperFunctions.staticWait(2);    
@@ -1439,10 +1439,10 @@ public void setReplacingCategoryLabel(ExtentTest test) {
 
 public void setAssetsTag(ExtentTest test) {
 	test.info("Wait for the page to load.");
-	HelperFunctions.waitForPageToLoad(10);
+	//HelperFunctions.waitForPageToLoad(10);
     
 	test.info("Getting each latest assets' data-my-products-doc-category-tag attribute value");
-    WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 15);
+    WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 30);
 	wait6.until(ExpectedConditions.visibilityOf(latestAssets.get(0)));
 	  HelperFunctions.staticWait(2);
 	  boolean foundPdf=false;
@@ -1524,7 +1524,7 @@ public void setClickVideo(ExtentTest test) {
 	        executor.executeScript("arguments[0].click();", firstElement);
 	    }
 		//resource1.click();
-		WebDriverWait wait5 = new WebDriverWait(Driver.getDriver(), 15);
+		WebDriverWait wait5 = new WebDriverWait(Driver.getDriver(), 30);
 	    wait5.until(ExpectedConditions.visibilityOf(playButton));
 	    test.info("Verified video opens in a same tab");
 		HelperFunctions.staticWait(3);
@@ -1540,7 +1540,7 @@ public void setClickVideo(ExtentTest test) {
 	    test.info("Clicked on play button");
 	    Actions actions=new Actions(Driver.getDriver());
 	    actions.moveToElement(videoPlayer).perform();
-	    WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 30);
 	    wait6.until(ExpectedConditions.visibilityOf(pauseButton));
 	    test.info("Verified pause button is displayed");
 	    pauseButton.click();

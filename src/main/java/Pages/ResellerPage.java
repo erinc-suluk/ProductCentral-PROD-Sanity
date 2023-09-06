@@ -78,8 +78,8 @@ public class ResellerPage extends HelperFunctions {
 	
 	public void setPageTitleAndProducts(ExtentTest test) throws Exception {
 		test.info("Wait for the page to load.");
-		HelperFunctions.waitForPageToLoad(15);
-		 WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
+		HelperFunctions.waitForPageToLoad(30);
+		 WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 30);
 	 		wait3.until(ExpectedConditions.visibilityOf(pageTitle));
 		test.info("Verified page title");
 		Assert.assertTrue(pageTitle.isDisplayed());

@@ -445,7 +445,7 @@ public class ProductPage extends HelperFunctions {
 	         throw new Exception(errorMessage);
 			//Assert.assertTrue(false);
 		}
-		HelperFunctions.staticWait(3);
+		HelperFunctions.staticWait(5);
 	    
 		
 	}

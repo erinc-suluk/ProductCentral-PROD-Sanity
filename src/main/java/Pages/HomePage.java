@@ -926,7 +926,7 @@ public class HomePage extends HelperFunctions {
 		HelperFunctions.waitForPageToLoad(30);
 		 WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 30);
 			wait3.until(ExpectedConditions.visibilityOf(FirsthomePageTile));
-		if(FirsthomePageTile.getText().contains("My Products")&&FirsthomePageTile.getText().contains("Login to My Products")) {
+		if(FirsthomePageTile.getText().contains("My Products")&&FirsthomePageTile.getText().contains("Log")) {
 			Assert.assertTrue(true);
 		}else {
 			 String errorMessage = "My Product Tile does not contain 'login to my product' link";

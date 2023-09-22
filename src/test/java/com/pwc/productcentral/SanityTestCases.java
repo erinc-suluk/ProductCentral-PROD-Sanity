@@ -81,21 +81,33 @@ public class SanityTestCases extends BasePage {
 	
 	@BeforeSuite
 	public void setUp() {
-		 PropertyConfigurator.configure(".\\log4j.properties");
-		 read = new ConfigurationsReader();
-		 platform = read.getPlatform();
-		 read.platformName();
-		 String reportFilePrefix="Sanity Automation Report for Product Central";
-		 File[] files=new File(".").listFiles((dir,name)->name.startsWith(reportFilePrefix));
-		 if(files!=null) {
-			 for(File file: files) {
-				 file.delete();
-			 }
-		 }
-		 String reportFileName=reportFilePrefix + ".html";
-		 htmlReporter = new ExtentHtmlReporter(reportFileName);
-	     extent = new ExtentReports();
-	     extent.attachReporter(htmlReporter);
+		PropertyConfigurator.configure(".\\log4j.properties");
+	    read = new ConfigurationsReader();
+	    platform = read.getPlatform();
+	    read.platformName();
+	    String reportFilePrefix = "Sanity Automation Report for Product Central";
+	    String reportFileName = reportFilePrefix + ".html";
+	    
+	   
+	    File existingReport = new File(reportFileName);
+	    
+	    if (existingReport.exists()) {
+	       
+	        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+	        String timestamp = dateFormat.format(new Date());
+	        String newReportFileName = reportFilePrefix + "_" + timestamp + ".html";
+	        
+	        if (existingReport.renameTo(new File(newReportFileName))) {
+	            System.out.println("Renamed existing report to: " + newReportFileName);
+	        } else {
+	            System.out.println("Failed to rename existing report.");
+	        }
+	    }
+
+	
+	    htmlReporter = new ExtentHtmlReporter(reportFileName);
+	    extent = new ExtentReports();
+	    extent.attachReporter(htmlReporter);
 	    
 	     
 	}

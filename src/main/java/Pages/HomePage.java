@@ -124,7 +124,7 @@ public class HomePage extends HelperFunctions {
 	@FindBy(xpath="(//div[@class='ap-dropdown-option-item'])//input")
 	private static List<WebElement> catDropdownCheckboxes;
 	
-	@FindBy(xpath="(//div[@class='cmp-search-results__card-tag'])[position()=1 or position()=2 or position()=3 or position()=4 or position()=5 or position()=6 or position()=7 or position()=8 or position()=9 or position()=10]")
+	@FindBy(xpath="(//div[@class='cmp-search-results__card-title'])[position()=1 or position()=2 or position()=3 or position()=4 or position()=5 or position()=6 or position()=7 or position()=8 or position()=9 or position()=10]")
 	private static List<WebElement> resultList;
 	
 	@FindBy(xpath="(//a[@href='/us/en/my-products.html'])[1]")

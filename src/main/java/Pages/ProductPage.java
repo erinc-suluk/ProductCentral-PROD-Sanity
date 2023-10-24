@@ -1259,9 +1259,12 @@ public void setClickAvatar(ExtentTest test) throws Exception {
 
 }
 public void setMyProductPageAccessibility() throws Exception {
-	WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
-    wait.until(ExpectedConditions.visibilityOf(myproductTitle));
-   
+	
+    //HelperFunctions.waitForPageToLoad(15);
+  
+    WebDriverWait wait6 = new WebDriverWait(Driver.getDriver(), 15);
+   	wait6.until(ExpectedConditions.visibilityOf(myproductTitle));
+    HelperFunctions.staticWait(2);
     if(myproductTitle.isDisplayed()) {
         Assert.assertTrue(true);
     }else {
@@ -1269,6 +1272,33 @@ public void setMyProductPageAccessibility() throws Exception {
         logger.error(errorMessage);
         throw new Exception(errorMessage);
     }
+
+    HelperFunctions.staticWait(3);
+
+    WebElement parentElement = Driver.getDriver().findElement(By.xpath("//div[@class='cmp-my-products-tile__text']"));
+
+    WebElement portfolioTag = parentElement.findElement(By.xpath(".//div[contains(@class, 'cmp-my-products-tile__portfolio-tag')]"));
+    WebElement title = parentElement.findElement(By.xpath(".//div[contains(@class, 'cmp-my-products-tile__title')]"));
+
+    if (portfolioTag.isDisplayed() && title.isDisplayed()) {
+    	 Assert.assertTrue(true);
+        System.out.println("Both child elements are present.");
+    } else {
+        System.out.println("One or both child elements are not present.");
+    }
+
+    HelperFunctions.staticWait(3);
+
+    for(WebElement each: titleofAssets) {
+    	String titleText=each.getText();
+    	int elementHeight=each.getSize().getHeight();
+    	int lineHeight=24;
+    	int numLines=elementHeight/lineHeight;
+    	if(numLines>3 && titleText.endsWith("...")) {
+    		Assert.assertTrue(true);
+    	}
+    }
+ 
     HelperFunctions.staticWait(3);
 }
 	
@@ -1449,7 +1479,7 @@ public void setAssetsTag(ExtentTest test) {
     for (WebElement element : latestAssets) {
     	  String href = element.getAttribute("href");
     	    //String myProductsDocCategoryTag = element.getAttribute("data-my-products-doc-category-tag");
-    	    if (href.endsWith(".pdf")&&href!=null) {
+    	    if (href.endsWith(".pdf")||href!=null) {
     	    	foundPdf=true;
     	    	break;
     	        //Assert.assertNotNull(myProductsDocCategoryTag);

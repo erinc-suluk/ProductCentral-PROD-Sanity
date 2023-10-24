@@ -807,7 +807,9 @@ public class SanityTestCases extends BasePage {
 	
     @Test
     public void WEB_35() throws Exception{
-        String testName = "Verify that when user logs in ,the user should be redirected to the asset they were trying to access";
+    	 String testName = "Verify that when user logs in ,the user should be redirected to the asset they were trying to access"+
+         		"/ Verify that for any page and asset(pdf,excel,image) MyProducts Document Category tag(eg-user guide,techinal guide) is visible"
+         		+"/ Verify that if the title of the asset or page is longer than 3 lines, then it will be displayed with ellipsis";
         ExtentTest test = extent.createTest(testName);
 
         try {

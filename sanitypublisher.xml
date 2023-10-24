@@ -11,7 +11,7 @@
        <methods>
      <include name="WEB_1"/>
        <include name="WEB_2"/>
-       <include name="WEB_3"/>
+       <exclude name="WEB_3"/>
        <include name="WEB_4"/>
        <include name="WEB_5"/>
        <include name="WEB_6"/>

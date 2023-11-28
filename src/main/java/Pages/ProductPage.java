@@ -90,7 +90,7 @@ public class ProductPage extends HelperFunctions {
 	@FindBy(xpath="//button[@id='showLess']")
 	private WebElement viewLessButton;
 	
-	@FindBy(xpath="//a[@href='/content/pc/us/en/my-products.html']")
+	@FindBy(xpath="//a[@href='/content/pc/us/en/my-products.html']//span[normalize-space()='My Products']")
 	private WebElement myProductItemOnSitemap;
 	
 	@FindBy(xpath="//div[@class='ap-dropdown-option-item']//span[1]")

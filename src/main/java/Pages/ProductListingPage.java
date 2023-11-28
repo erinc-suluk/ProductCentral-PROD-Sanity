@@ -144,7 +144,7 @@ public class ProductListingPage extends HelperFunctions {
 	@FindBy(xpath="//div[@class='cmp-product-list__cards-container']//a")
 	private static List<WebElement> productLinks;
 	
-	@FindBy(xpath="//div[@class='cmp-product-list__cards-alphabet-section']//div//a[2]")
+	@FindBy(xpath="//a[@data-product-name='Customer Link']")
 	private WebElement productBasedonSearch;
 	
 	@FindBy(xpath="//div[@class='cmp-product-list__cards-alphabet-section']//div//a[1]")

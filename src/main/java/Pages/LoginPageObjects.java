@@ -55,6 +55,12 @@ public class LoginPageObjects extends HelperFunctions{
 	@FindBy(xpath="(//div[@class='cmp-tiles__products-link'])[1]")
 	private WebElement logintoMyproducts;
 	
+	@FindBy(xpath="//input[@id='userEmail']")
+	private WebElement email2;
+	
+	@FindBy(xpath="//input[@value='Submit']")
+	private WebElement submit2;
+	
 	ReadXLSdata read1=new ReadXLSdata();
 	
 	/*public void setLogin() throws Exception {
@@ -124,7 +130,7 @@ public class LoginPageObjects extends HelperFunctions{
 		email.sendKeys(read1.getCellData("VALUE", 44));
 		HelperFunctions.staticWait(3);
 		next.click();
-		HelperFunctions.staticWait(5);
+		HelperFunctions.staticWait(3);
 		Robot rb= new Robot();
 	    rb.keyPress(KeyEvent.VK_TAB);
 	    rb.keyRelease(KeyEvent.VK_TAB);
@@ -162,34 +168,40 @@ public class LoginPageObjects extends HelperFunctions{
 	}
 	public void setLogin2() throws Exception {
 		HelperFunctions.waitForPageToLoad(30);
-		HelperFunctions.staticWait(2);
+		HelperFunctions.staticWait(5);
 		JavascriptExecutor js2 = (JavascriptExecutor) Driver.getDriver();
 	    js2.executeScript("window.scrollBy(0,250)", "");
 	    HelperFunctions.staticWait(3);
 	    JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
 	     executor.executeScript("arguments[0].click();", logintoMyproducts);
 		HelperFunctions.waitForPageToLoad(30);
-		HelperFunctions.staticWait(3);
 		read1.setExcelFile("./testdata.xlsx", "PRO");
+		email2.sendKeys(read1.getCellData("VALUE", 44));
+		HelperFunctions.staticWait(3);
+		submit2.click();
+		HelperFunctions.waitForPageToLoad(60);
 		email.sendKeys(read1.getCellData("VALUE", 44));
 		HelperFunctions.staticWait(3);
 		next.click();
-		HelperFunctions.waitForPageToLoad(60);
-		//HelperFunctions.staticWait(3);
+		HelperFunctions.waitForPageToLoad(90);
 		
 	    
 	}
 	
 	public void setLogin3() throws Exception {
-		HelperFunctions.waitForPageToLoad(5);
+		HelperFunctions.waitForPageToLoad(30);
+		HelperFunctions.staticWait(5);
 		JavascriptExecutor js2 = (JavascriptExecutor) Driver.getDriver();
 	    js2.executeScript("window.scrollBy(0,250)", "");
 	    HelperFunctions.staticWait(3);
-	    logintoMyproducts.click();
-	   // loginLink2.click();
-	    HelperFunctions.staticWait(5);
-		HelperFunctions.waitForPageToLoad(5);
+	    JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+	     executor.executeScript("arguments[0].click();", logintoMyproducts);
+		HelperFunctions.waitForPageToLoad(30);
 		read1.setExcelFile("./testdata.xlsx", "PRO");
+		email2.sendKeys(read1.getCellData("VALUE", 44));
+		HelperFunctions.staticWait(3);
+		submit2.click();
+		HelperFunctions.waitForPageToLoad(60);
 		email.sendKeys(read1.getCellData("VALUE", 44));
 		HelperFunctions.staticWait(3);
 		next.click();

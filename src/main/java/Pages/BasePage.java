@@ -69,25 +69,25 @@ public class BasePage extends HelperFunctions {
 	@FindBy(xpath="//span[@class='cmp-header__cta-avatar-initials']")
 	private static WebElement userInitials;
 	
-	@FindBy(xpath="//a[@href='https://productcentral.products.pwc.com/us/en/legal.html']")
+	@FindBy(xpath="//a[@data-ref-page='/content/pc/us/en/legal']")
 	private static WebElement legalLink;
 	
-	@FindBy(xpath="(//a[@href='https://productcentral.products.pwc.com/us/en/products.html'])[2]")
+	@FindBy(xpath="//a[@data-ref-page='/content/pc/us/en/products']")
 	private static WebElement productsLink;
 	
-	@FindBy(xpath="//a[@href='https://productcentral.products.pwc.com/us/en/resell-alliances.html']")
+	@FindBy(xpath="//a[@data-ref-page='/content/pc/us/en/resell-alliances']")
 	private static WebElement resellLink;
 	
-	@FindBy(xpath="//a[@href='https://productcentral.products.pwc.com/us/en/security.html']")
+	@FindBy(xpath="//a[@data-ref-page='/content/pc/us/en/security']")
 	private static WebElement securityLink;
 	
-	@FindBy(xpath="//a[@href='https://productcentral.products.pwc.com/us/en/compliance.html']")
+	@FindBy(xpath="//a[@data-ref-page='/content/pc/us/en/compliance']")
 	private static WebElement complianceLink;
 	
-	@FindBy(xpath="//a[@href='https://productcentral.products.pwc.com/us/en/privacy.html']")
+	@FindBy(xpath="//a[@data-ref-page='/content/pc/us/en/privacy']")
 	private static WebElement privacyLink;
 	
-	@FindBy(xpath="//a[@href='https://productcentral.products.pwc.com/us/en/accessibility.html']")
+	@FindBy(xpath="//a[@data-ref-page='/content/pc/us/en/accessibility']")
 	private static WebElement accesibilityLink;
 	
 	@FindBy(xpath="//h1[@class='cmp-title__text']")

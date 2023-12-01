@@ -239,8 +239,8 @@ public class SanityTestCases extends BasePage {
         ExtentTest test = extent.createTest(testName);
 
         try {
-            Driver.getDriver().get(read1.getCellData("VALUE", 51));
-            lpo.setLogin4();
+            Driver.getDriver().get(read1.getCellData("VALUE", 15));
+            lpo.setLogin2();
     	    pp.setErrorPage(test);
             test.pass("Test passed");
         } catch (Exception e) {
@@ -596,7 +596,8 @@ public class SanityTestCases extends BasePage {
 	
 	@Test
 	public void WEB_24() throws Exception{
-		String testName = "Verify display a tile per document category";
+		String testName = "Verify display a tile per document category"
+				+"/Verify that Resell Alliances tile's title is changed to Resell Alliance Terms";
         ExtentTest test = extent.createTest(testName);
 
         try {
@@ -847,7 +848,8 @@ public class SanityTestCases extends BasePage {
     }
     @Test
     public void WEB_37() throws Exception{
-        String testName = "Verify that within the modal an eyeball icon is displayed in the product that matches the Site Visitor's current MyProduct product page";
+        String testName = "Verify that within the modal an eyeball icon is displayed in the product that matches the Site Visitor's current MyProduct product page"
+        		+"/Verify system status indicators are visible in the hero component and MyProduct modal window.";
         ExtentTest test = extent.createTest(testName);
 
         try {

@@ -615,7 +615,7 @@ public void setTagsAccompany(ExtentTest test) {
     test.info("Verified tags all resources accompany with selected value");
     for(WebElement tags:myProductCatDropdownList2) {
         System.out.println(tags.getText());
-        if(tags.getText().equalsIgnoreCase("User Guide")) {
+        if(tags.getText().equalsIgnoreCase("User guide")) {
         	JavascriptExecutor executor2 = (JavascriptExecutor) Driver.getDriver();
             executor2.executeScript("arguments[0].click();", tags);
             wait.until(ExpectedConditions.visibilityOf(cardCategory.get(0)));

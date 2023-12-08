@@ -60,8 +60,8 @@ public class ProductPage extends HelperFunctions {
 	@FindBy(xpath="//div[@class='ap-footer-content']")
 	private WebElement footerContent;
 	
-	@FindBy(xpath="//div[@class='ap-footer-link-group']")
-	private WebElement footerLinkGroup;
+	@FindBy(xpath="//a[@class='ap-link']")
+	private static List<WebElement> footerLinkGroup;
 	
 	@FindBy(xpath="//span[.='Next']")
 	private WebElement nextButtonforResources;
@@ -350,18 +350,30 @@ public class ProductPage extends HelperFunctions {
 		HelperFunctions.staticWait(3);
 		test.info("Scroll down to footer content");
 		HelperFunctions.scrollToElement(footerContent);
-		test.info("Verified footer content and link group");
-	        if(footerContent.isDisplayed() && footerLinkGroup.isEnabled() ) {
-	        	String successMessage = "Only footer content displayed";
-	            logger.info(successMessage);
-	        	Assert.assertTrue(true);
-	        }else {
-	        	String errorMessage = "footer links are also displayed";
-	            logger.error(errorMessage);
-	            throw new Exception(errorMessage);
-	        	//Assert.assertTrue(false);
-	        }
-	        HelperFunctions.staticWait(3);
+		if(footerContent.isDisplayed() ) {
+        	String successMessage = "Only footer content displayed";
+            logger.info(successMessage);
+        	Assert.assertTrue(true);
+        }else {
+        	String errorMessage = "footer links are also displayed";
+            logger.error(errorMessage);
+            throw new Exception(errorMessage);
+        	//Assert.assertTrue(false);
+        }
+        test.info("Verified footer content is displayed");
+        HelperFunctions.staticWait(2);
+        if(footerLinkGroup.get(0).isDisplayed() && footerLinkGroup.size()>1  ) {
+        	String successMessage = "Only footer content displayed";
+            logger.info(successMessage);
+        	Assert.assertTrue(true);
+        }else {
+        	String errorMessage = "footer links are also displayed";
+            logger.error(errorMessage);
+            throw new Exception(errorMessage);
+        	//Assert.assertTrue(false);
+        }
+        test.info("Verified footer links are displayed");
+        HelperFunctions.staticWait(3);
 	}
 	
 	public void setFooterWithLogin(ExtentTest test) throws Exception {
@@ -375,8 +387,7 @@ public class ProductPage extends HelperFunctions {
 		HelperFunctions.scrollToElement(footerContent);
 		
 	        System.out.println(footerContent.getText());
-	        test.info("Verified footer content and link group");
-	        if(footerContent.isDisplayed() && footerLinkGroup.isDisplayed() ) {
+	        if(footerContent.isDisplayed() ) {
 	        	String successMessage = "Footer content and links are displayed";
 	            logger.info(successMessage);
 	        	Assert.assertTrue(true);
@@ -386,6 +397,19 @@ public class ProductPage extends HelperFunctions {
 	            throw new Exception(errorMessage);
 	        	//Assert.assertTrue(false);
 	        }
+	        test.info("Verified footer content is displayed");
+	        HelperFunctions.staticWait(2);
+	        if(footerLinkGroup.get(0).isDisplayed() && footerLinkGroup.size()>1  ) {
+	        	String successMessage = "Only footer content displayed";
+	            logger.info(successMessage);
+	        	Assert.assertTrue(true);
+	        }else {
+	        	String errorMessage = "footer links are also displayed";
+	            logger.error(errorMessage);
+	            throw new Exception(errorMessage);
+	        	//Assert.assertTrue(false);
+	        }
+	        test.info("Verified footer links are displayed");
 	        HelperFunctions.staticWait(3);
 	
 	}

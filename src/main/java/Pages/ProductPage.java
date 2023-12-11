@@ -634,7 +634,7 @@ public void setTagsAccompany(ExtentTest test) {
     executor.executeScript("arguments[0].click();", selectDropdown);
     HelperFunctions.staticWait(3);
     test.info("Click on user guide");
-    String expected1="User Guide";
+    String expected1="User guide";
     HelperFunctions.staticWait(3);
     test.info("Verified tags all resources accompany with selected value");
     for(WebElement tags:myProductCatDropdownList2) {

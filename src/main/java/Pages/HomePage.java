@@ -172,7 +172,7 @@ public class HomePage extends HelperFunctions {
     @FindBy(xpath="//div[@class='cmp-breadcrumb']//a")
     private WebElement breadCrumb;
     
-    @FindBy(xpath="//input[@aria-label='Search Product']")
+    @FindBy(xpath="//input[contains(@aria-label, 'Search Product')]")
     private WebElement searchProducts;
     
     @FindBy(xpath="//div[@class='ap-option-item']")
@@ -882,7 +882,7 @@ public class HomePage extends HelperFunctions {
              throw new Exception(errorMessage);
     	//	Assert.assertTrue(false);
     	}*/
-    	if(email2.isDisplayed()) {
+    	if(email.isDisplayed()) {
     		String successMessage = "LoginToMyProductLink elements are displayed";
             logger.info(successMessage);
     		Assert.assertTrue(true);

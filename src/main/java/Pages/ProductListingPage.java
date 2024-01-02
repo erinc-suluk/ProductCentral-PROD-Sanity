@@ -90,7 +90,7 @@ public class ProductListingPage extends HelperFunctions {
 	@FindBy(xpath="//h1[@class='cmp-product-list__search-bar-title']")
 	private WebElement productsTitle;
 	
-	@FindBy(xpath="//input[@aria-label='Search Product']")
+	@FindBy(xpath="//input[contains(@aria-label, 'Search Product')]")
 	private WebElement searchProduct;
 	
 	@FindBy(xpath="//div[@class='ap-option-item']")
